@@ -742,6 +742,7 @@
             const query = document.getElementById('searchBar').value.toLowerCase();
             const filteredRecipes = recipes.filter(recipe => 
                 recipe.name.toLowerCase().includes(query) || 
+                recipe.description?.toLowerCase().includes(query) ||
                 recipe.ingredients.toLowerCase().includes(query) || 
                 recipe.instructions.toLowerCase().includes(query)
             );
