@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipe Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #faf7f2 0%, #f8f4ef 100%);
+            color: #5a5047;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            color: #8b7355;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            color: #9b8c7a;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .add-recipe-btn {
+            background: linear-gradient(135deg, #d4a574 0%, #c49660 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(196, 150, 96, 0.3);
+        }
+
+        .add-recipe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196, 150, 96, 0.4);
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .recipe-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 20px rgba(139, 115, 85, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(139, 115, 85, 0.15);
+        }
+
+        .recipe-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            color: #8b7355;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .recipe-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #9b8c7a;
+        }
+
+        .recipe-meta span {
+            background: rgba(212, 165, 116, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+
+        .recipe-description {
+            color: #6b6155;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .recipe-actions {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view {
+            background: rgba(139, 115, 85, 0.1);
+            color: #8b7355;
+        }
+
+        .btn-edit {
+            background: rgba(168, 134, 89, 0.15);
+            color: #a88659;
+        }
+
+        .btn-delete {
+            background: rgba(218, 144, 144, 0.15);
+            color: #da9090;
+        }
+
+        .btn-share {
+            background: rgba(116, 169, 156, 0.15);
+            color: #74a99c;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.8;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(90, 80, 71, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: #faf7f2;
+            margin: 2% auto;
+            padding: 2.5rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(139, 115, 85, 0.3);
+        }
+
+        .close {
+            color: #9b8c7a;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: #8b7355;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #8b7355;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid rgba(139, 115, 85, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            color: #5a5047;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #c49660;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4a574 0%, #c49660 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-secondary {
+            background: rgba(155, 140, 122, 0.2);
+            color: #9b8c7a;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .recipe-detail {
+            line-height: 1.8;
+        }
+
+        .recipe-detail h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #8b7355;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .ingredients-list {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+
+        .ingredients-list h4 {
+            color: #8b7355;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .ingredients-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ingredients-list li {
+            padding: 0.3rem 0;
+            color: #6b6155;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .ingredients-list li:before {
+            content: "•";
+            color: #d4a574;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+
+        .instructions h4 {
+            color: #8b7355;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .share-link {
+            background: rgba(116, 169, 156, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            word-break: break-all;
+            font-family: monospace;
+            color: #74a99c;
+            cursor: pointer;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #9b8c7a;
+        }
+
+        .empty-state h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #8b7355;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .modal-content {
+                margin: 5% auto;
+                padding: 1.5rem;
+            }
+            
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>My Recipe Collection</h1>
+            <p>A cozy place for all your favorite recipes</p>
+        </div>
+
+        <button class="add-recipe-btn" onclick="openAddRecipeModal()">+ Add New Recipe</button>
+
+        <div id="recipeGrid" class="recipe-grid">
+            <!-- Recipes will be loaded here -->
+        </div>
+
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <h3>No recipes yet</h3>
+            <p>Start building your collection by adding your first recipe!</p>
+        </div>
+    </div>
+
+    <!-- Add/Edit Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Add New Recipe</h2>
+            <form id="recipeForm">
+                <div class="form-group">
+                    <label for="recipeName">Recipe Name *</label>
+                    <input type="text" id="recipeName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipeDescription">Description</label>
+                    <textarea id="recipeDescription" placeholder="A brief description of your recipe..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="prepTime">Prep Time (minutes)</label>
+                    <input type="number" id="prepTime" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cookTime">Cook Time (minutes)</label>
+                    <input type="number" id="cookTime" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="servings">Servings</label>
+                    <input type="number" id="servings" min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ingredients">Ingredients *</label>
+                    <textarea id="ingredients" placeholder="List each ingredient on a new line..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="instructions">Instructions *</label>
+                    <textarea id="instructions" placeholder="Write step-by-step instructions..." required></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Recipe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Recipe Modal -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeViewModal()">&times;</span>
+            <div id="recipeDetail" class="recipe-detail">
+                <!-- Recipe details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let recipes = [];
+        let editingRecipeId = null;
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRecipes();
+            checkForSharedRecipe();
+            
+            // Add form submission handler
+            const form = document.getElementById('recipeForm');
+            if (form) {
+                form.addEventListener('submit', handleFormSubmit);
+            }
+        });
+
+        // Check if there's a shared recipe in the URL
+        function checkForSharedRecipe() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const recipeData = urlParams.get('recipe');
+            
+            if (recipeData) {
+                try {
+                    const recipe = JSON.parse(decodeURIComponent(atob(recipeData)));
+                    viewRecipe(recipe);
+                } catch (e) {
+                    console.error('Invalid shared recipe data');
+                }
+            }
+        }
+
+        // Load recipes from localStorage
+        function loadRecipes() {
+            const savedRecipes = localStorage.getItem('myRecipes');
+            if (savedRecipes) {
+                try {
+                    recipes = JSON.parse(savedRecipes);
+                } catch (e) {
+                    console.error('Error loading recipes from localStorage:', e);
+                    recipes = [];
+                }
+            }
+            displayRecipes();
+        }
+
+        // Save recipes to localStorage
+        function saveRecipes() {
+            try {
+                localStorage.setItem('myRecipes', JSON.stringify(recipes));
+            } catch (e) {
+                console.error('Error saving recipes to localStorage:', e);
+                alert('Unable to save recipes. Your browser storage might be full.');
+            }
+        }
+
+        // Display recipes on the page
+        function displayRecipes() {
+            const grid = document.getElementById('recipeGrid');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (recipes.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            emptyState.style.display = 'none';
+            
+            grid.innerHTML = recipes.map(recipe => `
+                <div class="recipe-card">
+                    <h3>${recipe.name}</h3>
+                    <div class="recipe-meta">
+                        ${recipe.prepTime ? `<span>Prep: ${recipe.prepTime}min</span>` : ''}
+                        ${recipe.cookTime ? `<span>Cook: ${recipe.cookTime}min</span>` : ''}
+                        ${recipe.servings ? `<span>Serves: ${recipe.servings}</span>` : ''}
+                    </div>
+                    <div class="recipe-description">
+                        ${recipe.description || 'No description provided'}
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="btn btn-view" onclick="viewRecipe(${JSON.stringify(recipe).replace(/"/g, '&quot;')})">View</button>
+                        <button class="btn btn-edit" onclick="editRecipe('${recipe.id}')">Edit</button>
+                        <button class="btn btn-share" onclick="shareRecipe('${recipe.id}')">Share</button>
+                        <button class="btn btn-delete" onclick="deleteRecipe('${recipe.id}')">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Open add recipe modal
+        function openAddRecipeModal() {
+            editingRecipeId = null;
+            document.getElementById('modalTitle').textContent = 'Add New Recipe';
+            document.getElementById('recipeForm').reset();
+            document.getElementById('recipeModal').style.display = 'block';
+        }
+
+        // Edit recipe
+        function editRecipe(id) {
+            const recipe = recipes.find(r => r.id === id);
+            if (!recipe) return;
+            
+            editingRecipeId = id;
+            document.getElementById('modalTitle').textContent = 'Edit Recipe';
+            
+            // Populate form
+            document.getElementById('recipeName').value = recipe.name || '';
+            document.getElementById('recipeDescription').value = recipe.description || '';
+            document.getElementById('prepTime').value = recipe.prepTime || '';
+            document.getElementById('cookTime').value = recipe.cookTime || '';
+            document.getElementById('servings').value = recipe.servings || '';
+            document.getElementById('ingredients').value = recipe.ingredients || '';
+            document.getElementById('instructions').value = recipe.instructions || '';
+            
+            document.getElementById('recipeModal').style.display = 'block';
+        }
+
+        // View recipe
+        function viewRecipe(recipe) {
+            const detail = document.getElementById('recipeDetail');
+            detail.innerHTML = `
+                <h2>${recipe.name}</h2>
+                ${recipe.description ? `<p><em>${recipe.description}</em></p>` : ''}
+                
+                <div class="recipe-meta">
+                    ${recipe.prepTime ? `<span>Prep Time: ${recipe.prepTime} minutes</span>` : ''}
+                    ${recipe.cookTime ? `<span>Cook Time: ${recipe.cookTime} minutes</span>` : ''}
+                    ${recipe.servings ? `<span>Servings: ${recipe.servings}</span>` : ''}
+                </div>
+                
+                <div class="ingredients-list">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        ${recipe.ingredients.split('\n').map(ingredient => 
+                            ingredient.trim() ? `<li>${ingredient.trim()}</li>` : ''
+                        ).join('')}
+                    </ul>
+                </div>
+                
+                <div class="instructions">
+                    <h4>Instructions</h4>
+                    <div>${recipe.instructions.replace(/\n/g, '<br><br>')}</div>
+                </div>
+            `;
+            document.getElementById('viewModal').style.display = 'block';
+        }
+
+        // Share recipe
+        function shareRecipe(id) {
+            const recipe = recipes.find(r => r.id === id);
+            if (!recipe) return;
+            
+            const recipeData = btoa(encodeURIComponent(JSON.stringify(recipe)));
+            const shareUrl = `${window.location.origin}${window.location.pathname}?recipe=${recipeData}`;
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert('Recipe link copied to clipboard!');
+                }).catch(() => {
+                    fallbackCopyToClipboard(shareUrl);
+                });
+            } else {
+                fallbackCopyToClipboard(shareUrl);
+            }
+        }
+
+        // Fallback copy function
+        function fallbackCopyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                alert('Recipe link copied to clipboard!');
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                alert('Could not copy link. Please copy it manually: ' + text);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        // Delete recipe
+        function deleteRecipe(id) {
+            if (confirm('Are you sure you want to delete this recipe?')) {
+                recipes = recipes.filter(r => r.id !== id);
+                saveRecipes(); // Save to localStorage
+                displayRecipes();
+            }
+        }
+
+        // Handle form submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const recipe = {
+                id: editingRecipeId || Date.now().toString(),
+                name: document.getElementById('recipeName').value.trim(),
+                description: document.getElementById('recipeDescription').value.trim(),
+                prepTime: document.getElementById('prepTime').value,
+                cookTime: document.getElementById('cookTime').value,
+                servings: document.getElementById('servings').value,
+                ingredients: document.getElementById('ingredients').value.trim(),
+                instructions: document.getElementById('instructions').value.trim(),
+                createdAt: editingRecipeId ? recipes.find(r => r.id === editingRecipeId)?.createdAt || new Date().toISOString() : new Date().toISOString()
+            };
+            
+            // Validate required fields
+            if (!recipe.name || !recipe.ingredients || !recipe.instructions) {
+                alert('Please fill in all required fields (Recipe Name, Ingredients, and Instructions)');
+                return;
+            }
+            
+            if (editingRecipeId) {
+                const index = recipes.findIndex(r => r.id === editingRecipeId);
+                if (index !== -1) {
+                    recipes[index] = recipe;
+                }
+            } else {
+                recipes.push(recipe);
+            }
+            
+            saveRecipes(); // Save to localStorage
+            displayRecipes();
+            closeModal();
+        }
+
+        // Add event listener when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRecipes();
+            checkForSharedRecipe();
+            
+            // Add form submission handler
+            const form = document.getElementById('recipeForm');
+            if (form) {
+                form.addEventListener('submit', handleFormSubmit);
+            }
+        });
+
+        // Close modals
+        function closeModal() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        function closeViewModal() {
+            document.getElementById('viewModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const recipeModal = document.getElementById('recipeModal');
+            const viewModal = document.getElementById('viewModal');
+            if (event.target === recipeModal) {
+                closeModal();
+            }
+            if (event.target === viewModal) {
+                closeViewModal();
+            }
+        }
+    </script>
+</body>
+</html>

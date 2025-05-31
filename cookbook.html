@@ -6,7 +6,8 @@
 <title>My Personal Cookbook</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Freehand&display=swap" rel="stylesheet">
 <style>
     :root {
     /* Primary Colors */
@@ -40,7 +41,7 @@
     --border-light: #dda0dd;
     
     /* Text Colors */
-    --text-primary: #654321;
+    --text-primary: #803515;
     --text-secondary: #8b4513;
     --text-light: #faf9f7;
     
@@ -83,7 +84,7 @@
     }
     
     body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
     background-image: 
         radial-gradient(circle at 20px 80px, var(--overlay-purple) 2px, transparent 2px),
@@ -96,22 +97,20 @@
     }
     
     .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     }
     
     .header {
     text-align: center;
     margin-bottom: 50px;
-    background: var(--bg-modal);
+    background: var(--text-primary);
     backdrop-filter: blur(10px);
-    padding: 40px;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 20px var(--shadow-primary);
-    border-top: 4px solid var(--color-accent);
     position: relative;
-    border: 2px solid var(--border-primary);
     }
     
     .header::after {
@@ -126,18 +125,17 @@
     }
     
     .header h1 {
-    font-family: 'Crimson Text', serif;
-    font-size: 3em;
-    color: var(--text-primary);
+    font-family: 'Freehand', cursive;
+    font-size: 4em;
+    color: var(--bg-primary);
     margin-bottom: 8px;
-    font-weight: 600;
-    letter-spacing: -1px;
+    font-weight: 400;
+    letter-spacing: 1px;
     }
     
     .header p {
     font-size: 1.1em;
-    color: var(--text-secondary);
-    font-style: italic;
+    color: var(--bg-primary);
     font-weight: 300;
     }
     
@@ -589,7 +587,7 @@
     color: var(--text-secondary);
     font-size: 0.9em;
     text-align: center;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
     }
     
     @media print {
@@ -679,8 +677,8 @@
 <body>
 <div class="container">
 <div class="header">
-<h1>My Personal Cookbook</h1>
-<p>A collection of cherished recipes</p>
+<h1>Chef Pallawi's Book of Recipes!</h1>
+<p>A collection of my most cherished recipes..</p>
 </div>
 
 <div class="controls">
