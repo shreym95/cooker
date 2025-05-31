@@ -47,24 +47,100 @@
             font-weight: 300;
         }
 
+        .primary-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
         .add-recipe-btn {
-            background: linear-gradient(135deg, #d4a574 0%, #c49660 100%);
+            background: linear-gradient(135deg, #4ca7e3 0%, #3da3e3 100%);
             color: white;
             border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 15px;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 400;
             font-family: 'Poppins', sans-serif;
             cursor: pointer;
-            margin-bottom: 2rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(196, 150, 96, 0.3);
         }
 
         .add-recipe-btn:hover {
+            background: linear-gradient(150deg, #8ac1e5 0%, #5ba8d7 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(196, 150, 96, 0.4);
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .search-container input {
+            width: 100%;
+            max-width: 300px;
+            padding: 0.8rem 2rem;
+            border: 2px solid rgba(139, 115, 85, 0.2);
+            border-radius: 15px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            color: #5a5047;
+            transition: border-color 0.3s ease;
+            font-weight: 400;
+            font-family: 'Poppins', sans-serif;
+        }
+        .search-container input:focus {
+            outline: none;
+            border-color: #c49660;
+        }
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9b8c7a;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+        .search-container {
+            position: relative;
+        }
+        .search-container input::placeholder {
+            color: #9b8c7a;
+            opacity: 0.8;
+        }
+        .search-container input:focus::placeholder {
+            color: #c49660;
+            opacity: 0.6;
+        }
+        .search-container input::-webkit-input-placeholder {
+            color: #9b8c7a;
+            opacity: 0.8;
+        }
+
+        .add-recipe-btn,
+        .search-container {
+            margin: 1rem auto; /* Center horizontally */
+            width: fit-content; /* Adjust width to content */
+            display: block; /* Stack on smaller screens */
+        }
+
+        @media (min-width: 768px) {
+            .add-recipe-btn,
+            .search-container {
+            display: inline-block; /* Display side by side on larger screens */
+            vertical-align: middle; /* Align vertically */
+            margin: 1rem; /* Adjust margins for spacing */
+            }
+
+            .header {
+            margin-bottom: 1rem;
+            }
         }
 
         .backup-controls {
@@ -77,11 +153,11 @@
 
         .btn-backup,
         .btn-restore {
-            background: rgba(116, 169, 156, 0.15);
-            color: #74a99c;
+            background: #abb5b6e5;
+            color: #fafafa;
             border: none;
             padding: 0.6rem 1.5rem;
-            border-radius: 20px;
+            border-radius: 15px;
             font-size: 0.9rem;
             font-weight: 500;
             font-family: 'Poppins', sans-serif;
@@ -115,14 +191,14 @@
         }
 
         .recipe-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(139, 115, 85, 0.15);
         }
 
         .recipe-card h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.4rem;
-            color: #8b7355;
+            color: #0468BF;
             margin-bottom: 0.8rem;
             font-weight: 600;
         }
@@ -136,10 +212,12 @@
         }
 
         .recipe-meta span {
-            background: rgba(212, 165, 116, 0.2);
+            background: #e8f4ff;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-weight: 500;
+            color: #0477BF;
+            font-size: 0.75rem;
         }
 
         .recipe-description {
@@ -157,9 +235,9 @@
         .btn {
             padding: 0.5rem 1rem;
             border: none;
-            border-radius: 20px;
+            border-radius: 15px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
@@ -287,16 +365,21 @@
         }
 
         .recipe-detail {
-            line-height: 1.8;
+            line-height: 1.4;
         }
 
         .recipe-detail h2 {
             font-family: 'Poppins', sans-serif;
             color: #8b7355;
-            margin-bottom: 1rem;
-            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
             font-weight: 600;
             letter-spacing: -0.3px;
+        }
+
+        .recipe-detail p {
+            margin-bottom: 1rem;
+            font-size: 1rem;          ;
         }
 
         .ingredients-list {
@@ -310,6 +393,7 @@
             color: #8b7355;
             margin-bottom: 0.8rem;
             font-size: 1.2rem;
+            font-weight: 500;
         }
 
         .ingredients-list ul {
@@ -322,6 +406,9 @@
             color: #6b6155;
             position: relative;
             padding-left: 1.2rem;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
         }
 
         .ingredients-list li:before {
@@ -337,12 +424,15 @@
             padding: 1.5rem;
             border-radius: 15px;
             margin: 1.5rem 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         .instructions h4 {
             color: #8b7355;
             margin-bottom: 0.8rem;
             font-size: 1.2rem;
+            font-weight: 500;
         }
 
         .share-link {
@@ -394,10 +484,16 @@
     <div class="container">
         <div class="header">
             <h1>My Recipe Collection</h1>
-            <p>A cozy place for all your favorite recipes</p>
+            <p>A cozy space for all my favorite recipes! 💕</p>
         </div>
 
-        <button class="add-recipe-btn" onclick="openAddRecipeModal()">+ Add New Recipe</button>
+        <div class="primary-controls">
+            <button class="add-recipe-btn" onclick="openAddRecipeModal()">Add New Recipe ➕</button>
+            <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search recipes..." oninput="searchRecipes()">
+            <i class="fas fa-search search-icon">🔎</i>
+            </div>
+        </div>
         
         <div class="backup-controls">
             <button class="btn-backup" onclick="downloadBackup()">📥 Download Backup</button>
@@ -640,6 +736,38 @@
                 fallbackCopyToClipboard(shareUrl);
             }
         }
+
+        // Search recipes
+        function searchRecipes() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            const filteredRecipes = recipes.filter(recipe => 
+                recipe.name.toLowerCase().includes(query) || 
+                recipe.ingredients.toLowerCase().includes(query) || 
+                recipe.instructions.toLowerCase().includes(query)
+            );
+            
+            const grid = document.getElementById('recipeGrid');
+            grid.innerHTML = filteredRecipes.map(recipe => `
+                <div class="recipe-card">
+                    <h3>${recipe.name}</h3>
+                    <div class="recipe-meta">
+                        ${recipe.prepTime ? `<span>Prep: ${recipe.prepTime}min</span>` : ''}
+                        ${recipe.cookTime ? `<span>Cook: ${recipe.cookTime}min</span>` : ''}
+                        ${recipe.servings ? `<span>Serves: ${recipe.servings}</span>` : ''}
+                    </div>
+                    <div class="recipe-description">
+                        ${recipe.description || 'No description provided'}
+                    </div>
+                    <div class="recipe-actions">
+                        <button class="btn btn-view" onclick="viewRecipe(${JSON.stringify(recipe).replace(/"/g, '&quot;')})">View</button>
+                        <button class="btn btn-edit" onclick="editRecipe('${recipe.id}')">Edit</button>
+                        <button class="btn btn-share" onclick="shareRecipe('${recipe.id}')">Share</button>
+                        <button class="btn btn-delete" onclick="deleteRecipe('${recipe.id}')">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
 
         // Fallback copy function
         function fallbackCopyToClipboard(text) {
