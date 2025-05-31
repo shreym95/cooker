@@ -67,6 +67,36 @@
             box-shadow: 0 6px 20px rgba(196, 150, 96, 0.4);
         }
 
+        .backup-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-backup,
+        .btn-restore {
+            background: rgba(116, 169, 156, 0.15);
+            color: #74a99c;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-backup:hover,
+        .btn-restore:hover {
+            background: rgba(116, 169, 156, 0.25);
+            transform: translateY(-1px);
+        }
+
         .recipe-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -368,6 +398,12 @@
         </div>
 
         <button class="add-recipe-btn" onclick="openAddRecipeModal()">+ Add New Recipe</button>
+        
+        <div class="backup-controls">
+            <button class="btn-backup" onclick="downloadBackup()">📥 Download Backup</button>
+            <label for="backupUpload" class="btn-restore">📤 Restore Backup</label>
+            <input type="file" id="backupUpload" accept=".json" style="display: none;" onchange="uploadBackup(event)">
+        </div>
 
         <div id="recipeGrid" class="recipe-grid">
             <!-- Recipes will be loaded here -->
@@ -625,6 +661,82 @@
             }
             
             document.body.removeChild(textArea);
+        }
+
+        // Download backup as JSON file
+        function downloadBackup() {
+            if (recipes.length === 0) {
+                alert('No recipes to backup!');
+                return;
+            }
+
+            const backupData = {
+                recipes: recipes,
+                exportDate: new Date().toISOString(),
+                version: '1.0'
+            };
+
+            const dataStr = JSON.stringify(backupData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `recipe-backup-${new Date().toISOString().split('T')[0]}.json`;
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Clean up the URL object
+            URL.revokeObjectURL(link.href);
+        }
+
+        // Upload and restore backup from JSON file
+        function uploadBackup(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (!file.name.endsWith('.json')) {
+                alert('Please select a valid JSON backup file.');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const backupData = JSON.parse(e.target.result);
+                    
+                    // Validate backup structure
+                    if (!backupData.recipes || !Array.isArray(backupData.recipes)) {
+                        alert('Invalid backup file format.');
+                        return;
+                    }
+
+                    // Ask for confirmation before restoring
+                    const confirmMessage = recipes.length > 0 
+                        ? `This will replace your current ${recipes.length} recipe(s) with ${backupData.recipes.length} recipe(s) from the backup. Continue?`
+                        : `This will restore ${backupData.recipes.length} recipe(s) from the backup. Continue?`;
+                    
+                    if (confirm(confirmMessage)) {
+                        recipes = backupData.recipes;
+                        saveRecipes();
+                        displayRecipes();
+                        alert(`Successfully restored ${recipes.length} recipes!`);
+                    }
+                } catch (error) {
+                    console.error('Error parsing backup file:', error);
+                    alert('Error reading backup file. Please make sure it\'s a valid recipe backup.');
+                }
+            };
+
+            reader.onerror = function() {
+                alert('Error reading the file. Please try again.');
+            };
+
+            reader.readAsText(file);
+            
+            // Reset the file input so the same file can be selected again
+            event.target.value = '';
         }
 
         // Delete recipe
