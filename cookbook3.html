@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Recipe Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search,add" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add" />
     <style>
         * {
             margin: 0;
@@ -14,8 +16,8 @@
 
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #faf7f2 0%, #f8f4ef 100%);
-            color: #5a5047;
+            background: #f0fadf;
+            color: #2c3e50;
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -35,16 +37,17 @@
         .header h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 2.8rem;
-            color: #8b7355;
+            color: #5d9592;
             font-weight: 700;
             margin-bottom: 0.5rem;
             letter-spacing: -0.5px;
+            text-shadow: 2px 2px 4px rgba(93, 149, 146, 0.1);
         }
 
         .header p {
-            color: #9b8c7a;
+            color: #86a1ce;
             font-size: 1.1rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .primary-controls {
@@ -56,23 +59,32 @@
         }
 
         .add-recipe-btn {
-            background: linear-gradient(135deg, #4ca7e3 0%, #3da3e3 100%);
+            
+            background-color: #5bc783;
             color: white;
             border: none;
             padding: 0.8rem 1.5rem;
             border-radius: 15px;
             font-size: 1rem;
-            font-weight: 400;
+            font-weight: 500;
             font-family: 'Poppins', sans-serif;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(196, 150, 96, 0.3);
+            box-shadow: 0 4px 15px rgba(134, 161, 206, 0.3);
+        }
+
+        .add-icon {
+            position: relative;
+            right: 20px;
+            color: #86a1ce;
+            font-size: 1.2rem;
+            pointer-events: none;
         }
 
         .add-recipe-btn:hover {
-            background: linear-gradient(150deg, #8ac1e5 0%, #5ba8d7 100%);
+            background: #68e696;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(196, 150, 96, 0.4);
+            box-shadow: 0 6px 20px rgba(91, 199, 131, 0.4);
         }
 
         .search-container {
@@ -81,61 +93,74 @@
             align-items: center;
         }
         
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+
         .search-container input {
             width: 100%;
             max-width: 300px;
             padding: 0.8rem 2rem;
-            border: 2px solid rgba(139, 115, 85, 0.2);
+            border: 2px solid rgba(93, 149, 146, 0.3);
             border-radius: 15px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.8);
-            color: #5a5047;
-            transition: border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            transition: all 0.3s ease;
             font-weight: 400;
             font-family: 'Poppins', sans-serif;
         }
-        .search-container input:focus {
+        .search-container input:hover{
+            color: #5bc783;
             outline: none;
-            border-color: #c49660;
+            border-color: #5bc783;
+            box-shadow: 0 0 0 3px rgba(91, 199, 131, 0.1);
+        }
+        .search-container input:focus {
+            color: #5bc783;
+            outline: none;
+            border-color: #5bc783;
+            box-shadow: 0 0 0 3px rgba(91, 199, 131, 0.1);
         }
         .search-icon {
             position: absolute;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            color: #9b8c7a;
+            color: #86a1ce;
             font-size: 1.2rem;
             pointer-events: none;
         }
+
         .search-container {
             position: relative;
         }
         .search-container input::placeholder {
-            color: #9b8c7a;
+            color: #86a1ce;
             opacity: 0.8;
         }
         .search-container input:focus::placeholder {
-            color: #c49660;
+            color: #5bc783;
             opacity: 0.6;
-        }
-        .search-container input::-webkit-input-placeholder {
-            color: #9b8c7a;
-            opacity: 0.8;
         }
 
         .add-recipe-btn,
         .search-container {
-            margin: 1rem auto; /* Center horizontally */
-            width: fit-content; /* Adjust width to content */
-            display: block; /* Stack on smaller screens */
+            margin: 1rem auto;
+            width: fit-content;
+            display: block;
         }
 
         @media (min-width: 768px) {
             .add-recipe-btn,
             .search-container {
-            display: inline-block; /* Display side by side on larger screens */
-            vertical-align: middle; /* Align vertically */
-            margin: 1rem; /* Adjust margins for spacing */
+            display: inline-block;
+            vertical-align: middle;
+            margin: 1rem;
             }
 
             .header {
@@ -153,8 +178,8 @@
 
         .btn-backup,
         .btn-restore {
-            background: #abb5b6e5;
-            color: #fafafa;
+            background: #79c8c4;
+            color: #2c3e50;
             border: none;
             padding: 0.6rem 1.5rem;
             border-radius: 15px;
@@ -165,11 +190,13 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 2px 10px rgba(214, 234, 178, 0.3);
         }
 
         .btn-backup:hover,
         .btn-restore:hover {
-            background: rgba(116, 169, 156, 0.25);
+            background: #8de7e2;
+            box-shadow: 0 4px 15px rgba(91, 199, 131, 0.4);
             transform: translateY(-1px);
         }
 
@@ -181,24 +208,25 @@
         }
 
         .recipe-card {
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
             padding: 1.8rem;
-            box-shadow: 0 4px 20px rgba(139, 115, 85, 0.1);
+            box-shadow: 0 8px 32px rgba(93, 149, 146, 0.1);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(134, 161, 206, 0.2);
         }
 
         .recipe-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(139, 115, 85, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(91, 199, 131, 0.2);
+            border-color: rgba(91, 199, 131, 0.3);
         }
 
         .recipe-card h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.4rem;
-            color: #0468BF;
+            color: #5d9592;
             margin-bottom: 0.8rem;
             font-weight: 600;
         }
@@ -208,28 +236,31 @@
             gap: 1rem;
             margin-bottom: 1rem;
             font-size: 0.9rem;
-            color: #9b8c7a;
+            color: #86a1ce;
+            flex-wrap: wrap;
         }
 
         .recipe-meta span {
-            background: #e8f4ff;
+            background: linear-gradient(135deg, #d6eab2 0%, rgba(214, 234, 178, 0.7) 100%);
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-weight: 500;
-            color: #0477BF;
+            color: #2c3e50;
             font-size: 0.75rem;
         }
 
         .recipe-description {
-            color: #6b6155;
+            color: #2c3e50;
             margin-bottom: 1.2rem;
             font-size: 0.95rem;
+            opacity: 0.8;
         }
 
         .recipe-actions {
             display: flex;
             gap: 0.8rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -244,28 +275,48 @@
         }
 
         .btn-view {
-            background: rgba(139, 115, 85, 0.1);
-            color: #8b7355;
+            background: rgba(134, 161, 206, 0.2);
+            color: #86a1ce;
+        }
+
+        .btn-view:hover {
+            background: #86a1ce;
+            color: white;
         }
 
         .btn-edit {
-            background: rgba(168, 134, 89, 0.15);
-            color: #a88659;
+            background: rgba(214, 234, 178, 0.3);
+            color: #5bc783;
+        }
+
+        .btn-edit:hover {
+            background: #5bc783;
+            color: white;
         }
 
         .btn-delete {
-            background: rgba(218, 144, 144, 0.15);
-            color: #da9090;
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+
+        .btn-delete:hover {
+            background: #e74c3c;
+            color: white;
         }
 
         .btn-share {
-            background: rgba(116, 169, 156, 0.15);
-            color: #74a99c;
+            background: rgba(93, 149, 146, 0.2);
+            color: #5d9592;
+        }
+
+        .btn-share:hover {
+            background: #5d9592;
+            color: white;
         }
 
         .btn:hover {
             transform: translateY(-1px);
-            opacity: 0.8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .modal {
@@ -276,12 +327,12 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(90, 80, 71, 0.7);
+            background: rgba(44, 62, 80, 0.8);
             backdrop-filter: blur(5px);
         }
 
         .modal-content {
-            background: #faf7f2;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(214, 234, 178, 0.1) 100%);
             margin: 2% auto;
             padding: 2.5rem;
             border-radius: 20px;
@@ -289,20 +340,22 @@
             max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 20px 60px rgba(93, 149, 146, 0.3);
+            border: 1px solid rgba(134, 161, 206, 0.2);
         }
 
         .close {
-            color: #9b8c7a;
+            color: #86a1ce;
             float: right;
             font-size: 2rem;
             font-weight: bold;
             cursor: pointer;
             line-height: 1;
+            transition: color 0.3s ease;
         }
 
         .close:hover {
-            color: #8b7355;
+            color: #5d9592;
         }
 
         .form-group {
@@ -312,7 +365,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #8b7355;
+            color: #5d9592;
             font-weight: 500;
         }
 
@@ -321,19 +374,21 @@
         .form-group select {
             width: 100%;
             padding: 0.8rem 1rem;
-            border: 2px solid rgba(139, 115, 85, 0.2);
-            border-radius: 10px;
+            border: 2px solid rgba(134, 161, 206, 0.3);
+            border-radius: 12px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.8);
-            color: #5a5047;
-            transition: border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #c49660;
+            border-color: #5bc783;
+            box-shadow: 0 0 0 3px rgba(91, 199, 131, 0.1);
         }
 
         .form-group textarea {
@@ -349,19 +404,33 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #d4a574 0%, #c49660 100%);
+            background: linear-gradient(135deg, #5bc783 0%, #5d9592 100%);
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 25px;
             font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(91, 199, 131, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #86a1ce 0%, #5d9592 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 199, 131, 0.4);
         }
 
         .btn-secondary {
-            background: rgba(155, 140, 122, 0.2);
-            color: #9b8c7a;
+            background: rgba(134, 161, 206, 0.2);
+            color: #86a1ce;
             padding: 0.8rem 2rem;
             border-radius: 25px;
             font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .btn-secondary:hover {
+            background: #86a1ce;
+            color: white;
         }
 
         .recipe-detail {
@@ -370,7 +439,7 @@
 
         .recipe-detail h2 {
             font-family: 'Poppins', sans-serif;
-            color: #8b7355;
+            color: #5d9592;
             margin-bottom: 0.5rem;
             font-size: 1.8rem;
             font-weight: 600;
@@ -379,21 +448,23 @@
 
         .recipe-detail p {
             margin-bottom: 1rem;
-            font-size: 1rem;          ;
+            font-size: 1rem;
+            color: #2c3e50;
         }
 
         .ingredients-list {
-            background: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, rgba(214, 234, 178, 0.3) 0%, rgba(255, 255, 255, 0.8) 100%);
             padding: 1.5rem;
             border-radius: 15px;
             margin: 1.5rem 0;
+            border: 1px solid rgba(214, 234, 178, 0.5);
         }
 
         .ingredients-list h4 {
-            color: #8b7355;
+            color: #5d9592;
             margin-bottom: 0.8rem;
             font-size: 1.2rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .ingredients-list ul {
@@ -403,7 +474,7 @@
 
         .ingredients-list li {
             padding: 0.3rem 0;
-            color: #6b6155;
+            color: #2c3e50;
             position: relative;
             padding-left: 1.2rem;
             font-size: 0.9rem;
@@ -413,50 +484,52 @@
 
         .ingredients-list li:before {
             content: "•";
-            color: #d4a574;
+            color: #5bc783;
             font-weight: bold;
             position: absolute;
             left: 0;
         }
 
         .instructions {
-            background: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, rgba(134, 161, 206, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%);
             padding: 1.5rem;
             border-radius: 15px;
             margin: 1.5rem 0;
             font-size: 0.9rem;
             line-height: 1.5;
+            border: 1px solid rgba(134, 161, 206, 0.3);
         }
 
         .instructions h4 {
-            color: #8b7355;
+            color: #5d9592;
             margin-bottom: 0.8rem;
             font-size: 1.2rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .share-link {
-            background: rgba(116, 169, 156, 0.1);
+            background: rgba(93, 149, 146, 0.1);
             padding: 1rem;
             border-radius: 10px;
             margin: 1rem 0;
             word-break: break-all;
             font-family: monospace;
-            color: #74a99c;
+            color: #5d9592;
             cursor: pointer;
+            border: 1px solid rgba(93, 149, 146, 0.2);
         }
 
         .empty-state {
             text-align: center;
             padding: 4rem 2rem;
-            color: #9b8c7a;
+            color: #86a1ce;
         }
 
         .empty-state h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #8b7355;
+            color: #5d9592;
             font-weight: 500;
         }
 
@@ -488,10 +561,12 @@
         </div>
 
         <div class="primary-controls">
-            <button class="add-recipe-btn" onclick="openAddRecipeModal()">Add New Recipe ➕</button>
+            <button class="add-recipe-btn" onclick="openAddRecipeModal()">Add New Recipe</button>
+            <div><span class="material-symbols-outlined add-icon">add</span></div>
+            
             <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Search recipes..." oninput="searchRecipes()">
-            <i class="fas fa-search search-icon">🔎</i>
+                <input type="text" id="searchBar" placeholder="Search recipes..." oninput="searchRecipes()">
+                <span class="material-symbols-outlined search-icon">search</span>
             </div>
         </div>
         
