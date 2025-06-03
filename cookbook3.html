@@ -54,11 +54,53 @@
             position: relative;
         }
 
+        .header h1::after {
+            content: '🧁';
+            position: absolute;
+            top: -5px;
+            right: -50px;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transform: rotate(15deg);
+        }
+
         .header p {
             color: #6c757d;
             font-size: 1.2rem;
             font-weight: 300;
             margin-top: 0.5rem;
+            position: relative;
+        }
+
+        .mix-catchphrase {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Poppins', cursive;
+            font-size: 1rem;
+            color: #50c878;
+            opacity: 0.8;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            background: rgba(80, 200, 120, 0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            border: 1px solid rgba(80, 200, 120, 0.2);
+        }
+
+        .mix-catchphrase::before {
+            content: '🥄';
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .mix-catchphrase::after {
+            content: '🥄';
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+            transform: scaleX(-1);
+            display: inline-block;
         }
 
         .primary-controls {
@@ -244,9 +286,24 @@
 
         .recipe-meta {
             margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: #50c878;
+            font-weight: 500;
+            background: #f8fffe;
+            padding: 0.6rem 1rem 0.6rem 2rem;
+            border-radius: 12px;
+            border-left: 3px solid #50c878;
+            position: relative;
+        }
+
+        .recipe-meta::before {
+            content: '🍚';
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 0.9rem;
-            color: #6c757d;
-            font-weight: 400;
+            opacity: 0.7;
         }
 
         .recipe-description {
@@ -365,6 +422,7 @@
 
         .form-group {
             margin-bottom: 2rem;
+            position: relative;
         }
 
         .form-group label {
@@ -373,6 +431,71 @@
             color: #50c878;
             font-weight: 500;
             font-size: 1rem;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .form-group label[for="recipeName"]::before {
+            content: '👨‍🍳';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+
+        .form-group label[for="prepTime"]::before {
+            content: '☕';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+        }
+
+        .form-group label[for="cookTime"]::before {
+            content: '🔥';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+        }
+
+        .form-group label[for="servings"]::before {
+            content: '🥢';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+        }
+
+        .form-group label[for="ingredients"]::before {
+            content: '🥦';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+        }
+
+        .form-group label[for="instructions"]::before {
+            content: '🥄';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+        }
+
+        .form-group label[for="recipeDescription"]::before {
+            content: '📝';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
         }
 
         .form-group input,
@@ -457,47 +580,44 @@
         .recipe-detail h2 {
             font-family: 'Poppins', sans-serif;
             color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-size: 2rem;
             font-weight: 600;
             letter-spacing: -0.5px;
         }
 
         .recipe-detail p {
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #6c757d;
             font-style: italic;
         }
 
         .recipe-detail .recipe-meta {
             margin-bottom: 2rem;
-            justify-content: flex-start;
-            color: #6c757d;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            color: #50c878;
+            font-weight: 500;
+            background: #f8fffe;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            border-left: 3px solid #50c878;
+            display: inline-block;
         }
 
         .ingredients-list {
-            background: #f8fffe;
-            padding: 2.5rem;
-            border-radius: 16px;
-            margin: 2.5rem 0;
-            border: 2px solid #e8f5e8;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid #f0f0f0;
         }
 
         .ingredients-list h4 {
-            color: #50c878;
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .ingredients-list h4::before {
-            content: '🥗';
+            color: #2c3e50;
+            margin-bottom: 1.2rem;
             font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .ingredients-list ul {
@@ -506,13 +626,13 @@
         }
 
         .ingredients-list li {
-            padding: 0.8rem 0;
+            padding: 0.5rem 0;
             color: #2c3e50;
             position: relative;
-            padding-left: 2rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 0.3rem;
         }
 
         .ingredients-list li:before {
@@ -520,37 +640,29 @@
             color: #50c878;
             font-weight: bold;
             position: absolute;
-            left: 0.5rem;
-            font-size: 1.5rem;
+            left: 0.3rem;
+            font-size: 1.2rem;
         }
 
         .instructions {
-            background: #f8fffe;
-            padding: 2.5rem;
-            border-radius: 16px;
-            margin: 2.5rem 0;
-            border: 2px solid #e8f5e8;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid #f0f0f0;
         }
 
         .instructions h4 {
-            color: #50c878;
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .instructions h4::before {
-            content: '👩‍🍳';
+            color: #2c3e50;
+            margin-bottom: 1.2rem;
             font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .instructions div {
             color: #2c3e50;
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .share-link {
@@ -570,6 +682,7 @@
             text-align: center;
             padding: 6rem 2rem;
             color: #c0c0c0;
+            position: relative;
         }
 
         .empty-state h3 {
@@ -586,7 +699,7 @@
         }
 
         .empty-state::before {
-            content: '🍳';
+            content: '🍜';
             display: block;
             font-size: 4rem;
             margin-bottom: 1.5rem;
@@ -618,7 +731,7 @@
             }
             
             .recipe-actions {
-                grid-template-columns: 1fr;
+                gap: 0.4rem;
             }
             
             .form-actions {
@@ -632,32 +745,41 @@
             }
         }
 
-        /* Cute decorative elements */
-        .recipe-card:nth-child(3n+1)::after {
-            content: '🌿';
+        /* Cute decorative elements - Personal food doodles */
+        .recipe-card:nth-child(4n+1)::after {
+            content: '🍕';
             position: absolute;
             top: 1rem;
             right: 1.5rem;
-            font-size: 1.2rem;
-            opacity: 0.3;
+            font-size: 1.3rem;
+            opacity: 0.6;
         }
 
-        .recipe-card:nth-child(3n+2)::after {
-            content: '✨';
+        .recipe-card:nth-child(4n+2)::after {
+            content: '🍝';
             position: absolute;
             top: 1rem;
             right: 1.5rem;
-            font-size: 1.2rem;
-            opacity: 0.3;
+            font-size: 1.3rem;
+            opacity: 0.6;
         }
 
-        .recipe-card:nth-child(3n+3)::after {
-            content: '🍽️';
+        .recipe-card:nth-child(4n+3)::after {
+            content: '☕';
             position: absolute;
             top: 1rem;
             right: 1.5rem;
-            font-size: 1.2rem;
-            opacity: 0.3;
+            font-size: 1.3rem;
+            opacity: 0.6;
+        }
+
+        .recipe-card:nth-child(4n+4)::after {
+            content: '🥟';
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.3rem;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -666,6 +788,7 @@
         <div class="header">
             <h1>My Recipe Collection</h1>
             <p>A cozy space for all my favorite recipes! 💕</p>
+            <div class="mix-catchphrase">Mix! Mix! Mix!</div>
         </div>
 
         <div class="primary-controls">
@@ -983,7 +1106,6 @@
                 </div>
             `}).join('');
         }
-        
 
         // Fallback copy function
         function fallbackCopyToClipboard(text) {
