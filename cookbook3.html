@@ -39,67 +39,56 @@
         .header {
             text-align: center;
             margin-bottom: 4rem;
-            padding: 3rem 0 2rem;
+            padding: 2rem 0 2rem;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
 
         .header::before {
             content: '✨';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 3rem; /* Increased from 2rem */
-            opacity: 0.9; /* Increased from 0.7 */
+            position: relative;
+            font-size: 3rem;
+            opacity: 0.9;
+            order: -1;
         }
 
         .header h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 3.2rem;
-            color: #50c878;
+            color: #2d8f47; /* Darker emerald green instead of #50c878 */
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             letter-spacing: -0.8px;
             position: relative;
-        }
-
-        .header h1::after {
-            content: '';
-            position: absolute;
-            top: -15px;
-            right: -55px; /* Adjusted position for larger size */
-            width: 40px; /* Increased from 25px */
-            height: 48px; /* Increased from 30px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 60"><path d="M25 45 Q15 50 15 55 Q15 58 25 58 Q35 58 35 55 Q35 50 25 45" fill="%2350c878" opacity="0.8"/><path d="M25 20 Q20 15 15 20 Q12 25 15 30 Q18 35 25 35 Q32 35 35 30 Q38 25 35 20 Q30 15 25 20" fill="%23ff9999" opacity="0.7"/><path d="M25 30 Q20 32 20 35 Q20 40 25 40 Q30 40 30 35 Q30 32 25 30" fill="%23ffffff" opacity="0.9"/></svg>');
-            background-repeat: no-repeat;
-            background-size: contain;
-            opacity: 1; /* Increased from 0.8 */
-            transform: rotate(15deg);
         }
 
         .header p {
             color: #6c757d;
             font-size: 1.2rem;
             font-weight: 300;
-            margin-top: 0.5rem;
+            margin: 0;
             position: relative;
         }
 
         .mix-catchphrase {
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
+            bottom: auto;
+            left: auto;
+            transform: none;
             font-family: 'Poppins', cursive;
             font-size: 1rem;
             color: #50c878;
-            opacity: 0.9; /* Increased from 0.8 */
+            opacity: 0.9;
             font-weight: 500;
             letter-spacing: 0.5px;
-            background: rgba(80, 200, 120, 0.15); /* Increased from 0.1 */
+            background: rgba(80, 200, 120, 0.15);
             padding: 0.3rem 1rem;
             border-radius: 15px;
-            border: 1px solid rgba(80, 200, 120, 0.3); /* Increased from 0.2 */
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            margin-top: 0.5rem;
         }
 
         .mix-catchphrase::before {
@@ -138,7 +127,7 @@
         }
 
         .add-recipe-btn {
-            background: #50c878;
+            background: #2d8f47; /* Darker emerald green instead of #50c878 */
             color: white;
             border: none;
             padding: 1rem 2rem;
@@ -148,16 +137,16 @@
             font-family: 'Poppins', sans-serif;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(80, 200, 120, 0.25);
+            box-shadow: 0 4px 20px rgba(45, 143, 71, 0.25); /* Updated shadow color */
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
         .add-recipe-btn:hover {
-            background: #45b36b;
+            background: #246837; /* Darker hover state */
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(80, 200, 120, 0.35);
+            box-shadow: 0 6px 25px rgba(45, 143, 71, 0.35); /* Updated hover shadow */
         }
 
         .add-recipe-btn .material-symbols-outlined {
@@ -273,7 +262,7 @@
             padding: 2.5rem;
             box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
-            border: 2px solid #50c87829;
+            border: 2px solid rgba(45, 143, 71, 0.16); /* Updated border color */
             position: relative;
             overflow: hidden;
         }
@@ -285,7 +274,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: #50c87869;
+            background: rgba(45, 143, 71, 0.4); /* Updated top border color */
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -312,7 +301,7 @@
         .recipe-meta {
             margin-bottom: 1.5rem;
             font-size: 0.85rem;
-            color: #50c878;
+            color: #2d8f47; /* Updated text color */
             font-weight: 500;
             background: #f8fffe;
             padding: 0.6rem 1rem 0.6rem 2.5rem; /* Increased left padding for larger icon */
@@ -328,7 +317,7 @@
             transform: translateY(-50%);
             width: 20px; /* Increased from 12px */
             height: 20px; /* Increased from 12px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><ellipse cx="8" cy="12" rx="2.5" ry="5" fill="%2350c878" opacity="0.7"/><ellipse cx="15" cy="10" rx="2" ry="4" fill="%2350c878" opacity="0.8"/><ellipse cx="22" cy="14" rx="2.5" ry="4.5" fill="%2350c878" opacity="0.6"/><ellipse cx="12" cy="18" rx="2.3" ry="4.2" fill="%2350c878" opacity="0.7"/><ellipse cx="18" cy="20" rx="2.1" ry="3.8" fill="%2350c878" opacity="0.8"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><ellipse cx="8" cy="12" rx="2.5" ry="5" fill="%232d8f47" opacity="0.7"/><ellipse cx="15" cy="10" rx="2" ry="4" fill="%232d8f47" opacity="0.8"/><ellipse cx="22" cy="14" rx="2.5" ry="4.5" fill="%232d8f47" opacity="0.6"/><ellipse cx="12" cy="18" rx="2.3" ry="4.2" fill="%232d8f47" opacity="0.7"/><ellipse cx="18" cy="20" rx="2.1" ry="3.8" fill="%232d8f47" opacity="0.8"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -358,7 +347,6 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
-            flex: 1;
             justify-content: center;
             min-width: fit-content;
         }
@@ -368,28 +356,35 @@
         }
 
         .btn-view {
-            background: #f8f9fa;
-            color: #6c757d;
+            background: #2d8f47; /* Primary emerald green */
+            color: white;
+            flex: 1;
+            min-width: calc(50% - 0.25rem);
         }
 
         .btn-view:hover {
-            background: #e9ecef;
+            background: #246837;
             transform: translateY(-1px);
         }
 
         .btn-edit {
-            background: #e8f5e8;
-            color: #50c878;
+            background: rgba(45, 143, 71, 0.1);
+            color: #2d8f47;
+            flex: 1;
+            min-width: calc(50% - 0.25rem);
         }
 
         .btn-edit:hover {
-            background: #d4f0d4;
+            background: rgba(45, 143, 71, 0.2);
             transform: translateY(-1px);
         }
 
         .btn-delete {
             background: #f5f5f5;
             color: #999;
+            flex: 1;
+            min-width: calc(50% - 0.25rem);
+            order: 4;
         }
 
         .btn-delete:hover {
@@ -399,13 +394,22 @@
         }
 
         .btn-share {
-            background: #f0f8f0;
-            color: #45b36b;
+            background: #f8f9fa;
+            color: #6c757d;
+            flex: 1;
+            min-width: calc(50% - 0.25rem);
+            order: 3;
         }
 
         .btn-share:hover {
-            background: #e0f0e0;
+            background: #e9ecef;
             transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .recipe-actions {
+                gap: 0.4rem;
+            }
         }
 
         .modal {
@@ -764,9 +768,36 @@
             background-size: contain;
         }
 
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fdfefd;
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 25%, rgba(80, 200, 120, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 85% 75%, rgba(69, 179, 107, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 45% 85%, rgba(102, 221, 146, 0.06) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g fill="none" stroke="%2350c878" stroke-width="2" opacity="0.6"><circle cx="50" cy="80" r="3"/><circle cx="350" cy="120" r="2.5"/><circle cx="80" cy="350" r="2"/><circle cx="320" cy="60" r="2.5"/><circle cx="60" cy="300" r="2"/><circle cx="340" cy="320" r="2.5"/></g><g fill="none" stroke="%23ff9999" stroke-width="2" opacity="0.5"><path d="M20 150 Q25 145 30 150 Q35 155 40 150"/><path d="M360 280 Q365 275 370 280 Q375 285 380 280"/><path d="M80 50 Q85 45 90 50 Q95 55 100 50"/><path d="M300 350 Q305 345 310 350 Q315 355 320 350"/></g><g fill="none" stroke="%23DAA520" stroke-width="2" opacity="0.6"><ellipse cx="90" cy="330" rx="8" ry="3"/><ellipse cx="310" cy="70" rx="6" ry="2.5"/><ellipse cx="50" cy="250" rx="4" ry="2"/><ellipse cx="350" cy="300" rx="5" ry="2.5"/></g><g fill="%2350c878" opacity="0.3"><circle cx="70" cy="70" r="1"/><circle cx="330" cy="340" r="1.5"/><circle cx="40" cy="180" r="1"/><circle cx="360" cy="220" r="1.2"/></g><g fill="none" stroke="%23D2B48C" stroke-width="2" opacity="0.5"><path d="M350 30 L350 40"/><path d="M350 35 Q345 35 345 40 Q350 42 355 40 Q355 35 350 35"/><path d="M30 350 L40 350"/><path d="M35 345 Q35 350 40 350 Q42 345 40 340 Q35 340 35 345"/></g><g fill="none" stroke="%23ff9999" stroke-width="1.5" opacity="0.4"><path d="M380 80 Q375 75 370 80 Q365 85 370 90 Q375 85 380 80"/><path d="M20 320 Q15 315 10 320 Q5 325 10 330 Q15 325 20 320"/></g></svg>');
+            background-size: 100% 100%, 100% 100%, 100% 100%, 400px 400px;
+            background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+            background-position: 0 0, 0 0, 0 0, 0 0;
+            background-attachment: fixed;
+        }
+
         @media (max-width: 768px) {
+            body {
+                background-size: 100% 100%, 100% 100%, 100% 100%, 300px 300px;
+                background-attachment: scroll;
+            }
+            
             .container {
                 padding: 2rem 1rem;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
             
             .header {
@@ -781,6 +812,8 @@
             .modal-content {
                 margin: 5% auto;
                 padding: 2rem;
+                width: 95%;
+                max-width: 95%;
             }
             
             .recipe-grid {
