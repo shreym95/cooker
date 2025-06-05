@@ -24,7 +24,7 @@
                 radial-gradient(circle at 15% 25%, rgba(80, 200, 120, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 85% 75%, rgba(69, 179, 107, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 45% 85%, rgba(102, 221, 146, 0.06) 0%, transparent 50%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g fill="none" stroke="%2350c878" stroke-width="2" opacity="0.6"><circle cx="50" cy="80" r="3"/><circle cx="350" cy="120" r="2.5"/><circle cx="80" cy="350" r="2"/><circle cx="320" cy="60" r="2.5"/><circle cx="60" cy="300" r="2"/><circle cx="340" cy="320" r="2.5"/></g><g fill="none" stroke="%23ff9999" stroke-width="2" opacity="0.5"><path d="M20 150 Q25 145 30 150 Q35 155 40 150"/><path d="M360 280 Q365 275 370 280 Q375 285 380 280"/><path d="M80 50 Q85 45 90 50 Q95 55 100 50"/><path d="M300 350 Q305 345 310 350 Q315 355 320 350"/></g><g fill="none" stroke="%23DAA520" stroke-width="2" opacity="0.6"><ellipse cx="90" cy="330" rx="8" ry="3"/><ellipse cx="310" cy="70" rx="6" ry="2.5"/><ellipse cx="50" cy="250" rx="4" ry="2"/><ellipse cx="350" cy="300" rx="5" ry="2.5"/></g><g fill="%2350c878" opacity="0.3"><circle cx="70" cy="70" r="1"/><circle cx="330" cy="340" r="1.5"/><circle cx="40" cy="180" r="1"/><circle cx="360" cy="220" r="1.2"/></g><g fill="none" stroke="%23D2B48C" stroke-width="2" opacity="0.5"><path d="M350 30 L350 40"/><path d="M350 35 Q345 35 345 40 Q350 42 355 40 Q355 35 350 35"/><path d="M30 350 L40 350"/><path d="M35 345 Q35 350 40 350 Q42 345 40 340 Q35 340 35 345"/></g><g fill="none" stroke="%23ff9999" stroke-width="1.5" opacity="0.4"><path d="M380 80 Q375 75 370 80 Q365 85 370 90 Q375 85 380 80"/><path d="M20 320 Q15 315 10 320 Q5 325 10 330 Q15 325 20 320"/></g></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g fill="none" stroke="%232d8f47" stroke-width="2" opacity="0.6"><circle cx="50" cy="80" r="3"/><circle cx="350" cy="120" r="2.5"/><circle cx="80" cy="350" r="2"/><circle cx="320" cy="60" r="2.5"/><circle cx="60" cy="300" r="2"/><circle cx="340" cy="320" r="2.5"/></g><g fill="none" stroke="%23ff9999" stroke-width="2" opacity="0.5"><path d="M20 150 Q25 145 30 150 Q35 155 40 150"/><path d="M360 280 Q365 275 370 280 Q375 285 380 280"/><path d="M80 50 Q85 45 90 50 Q95 55 100 50"/><path d="M300 350 Q305 345 310 350 Q315 355 320 350"/></g><g fill="none" stroke="%23DAA520" stroke-width="2" opacity="0.6"><ellipse cx="90" cy="330" rx="8" ry="3"/><ellipse cx="310" cy="70" rx="6" ry="2.5"/><ellipse cx="50" cy="250" rx="4" ry="2"/><ellipse cx="350" cy="300" rx="5" ry="2.5"/></g><g fill="%232d8f47" opacity="0.3"><circle cx="70" cy="70" r="1"/><circle cx="330" cy="340" r="1.5"/><circle cx="40" cy="180" r="1"/><circle cx="360" cy="220" r="1.2"/></g><g fill="none" stroke="%23D2B48C" stroke-width="2" opacity="0.5"><path d="M350 30 L350 40"/><path d="M350 35 Q345 35 345 40 Q350 42 355 40 Q355 35 350 35"/><path d="M30 350 L40 350"/><path d="M35 345 Q35 350 40 350 Q42 345 40 340 Q35 340 35 345"/></g><g fill="none" stroke="%23ff9999" stroke-width="1.5" opacity="0.4"><path d="M380 80 Q375 75 370 80 Q365 85 370 90 Q375 85 380 80"/><path d="M20 320 Q15 315 10 320 Q5 325 10 330 Q15 325 20 320"/></g></svg>');
             background-size: 100% 100%, 100% 100%, 100% 100%, 400px 400px;
             background-repeat: no-repeat, no-repeat, no-repeat, repeat;
             background-position: 0 0, 0 0, 0 0, 0 0;
@@ -73,22 +73,16 @@
             position: relative;
         }
 
-        .mix-catchphrase {
-            position: relative;
-            bottom: auto;
-            left: auto;
-            transform: none;
-            font-family: 'Poppins', cursive;
-            font-size: 1rem;
-            color: #50c878;
-            opacity: 0.9;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            background: rgba(80, 200, 120, 0.15);
-            padding: 0.3rem 1rem;
-            border-radius: 15px;
-            border: 1px solid rgba(80, 200, 120, 0.3);
-            margin-top: 0.5rem;
+        .mix-catchphrase:hover {
+            /* Gentle shake animation */
+            animation: mixShake 0.6s ease-in-out;
+            
+            /* Slight color enhancement on hover */
+            background: rgba(80, 200, 120, 0.25);
+            border-color: rgba(80, 200, 120, 0.5);
+            
+            /* Slight scale up */
+            transform: scale(1.02);
         }
 
         .mix-catchphrase::before {
@@ -99,9 +93,74 @@
             transform: translateY(-50%);
             width: 28px; /* Increased from 18px */
             height: 28px; /* Increased from 18px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M20 5 L20 35" stroke="%2350c878" stroke-width="3" opacity="0.8"/><path d="M8 15 Q12 12 16 15 Q20 18 24 15 Q28 12 32 15" stroke="%2350c878" stroke-width="2.5" fill="none" opacity="0.7"/><path d="M10 22 Q14 19 18 22 Q22 25 26 22 Q30 19 34 22" stroke="%2350c878" stroke-width="2.5" fill="none" opacity="0.7"/><circle cx="20" cy="8" r="3" fill="%2350c878" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M20 5 L20 35" stroke="%232d8f47" stroke-width="3" opacity="0.8"/><path d="M8 15 Q12 12 16 15 Q20 18 24 15 Q28 12 32 15" stroke="%232d8f47" stroke-width="2.5" fill="none" opacity="0.7"/><path d="M10 22 Q14 19 18 22 Q22 25 26 22 Q30 19 34 22" stroke="%232d8f47" stroke-width="2.5" fill="none" opacity="0.7"/><circle cx="20" cy="8" r="3" fill="%232d8f47" opacity="0.6"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
+        }
+
+                /* Gentle shake animation for the catchphrase */
+        @keyframes mixShake {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            15% { transform: translateX(-1px) translateY(-0.5px); }
+            30% { transform: translateX(1px) translateY(0.5px); }
+            45% { transform: translateX(-0.5px) translateY(-1px); }
+            60% { transform: translateX(0.5px) translateY(1px); }
+            75% { transform: translateX(-1px) translateY(-0.5px); }
+            90% { transform: translateX(1px) translateY(0.5px); }
+        }
+
+        /* Subtle continuous animation */
+        @keyframes mixFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-2px); }
+        }
+
+        /* Base catchphrase styles with smooth transitions */
+        .mix-catchphrase {
+            position: relative;
+            bottom: auto;
+            left: auto;
+            transform: none;
+            font-family: 'Poppins', cursive;
+            font-size: 1rem;
+            color: #2d8f47;
+            opacity: 0.9;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            background: rgba(80, 200, 120, 0.15);
+            padding: 0.3rem 1rem;
+            border-radius: 15px;
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Desktop hover effect */
+        @media (hover: hover) and (pointer: fine) {
+            .mix-catchphrase:hover {
+                animation: mixShake 0.6s ease-in-out;
+                background: rgba(80, 200, 120, 0.25);
+                border-color: rgba(80, 200, 120, 0.5);
+                transform: scale(1.02);
+            }
+        }
+
+        /* Animation classes for scroll triggers */
+        .mix-catchphrase.animate-in-view {
+            animation: mixShake 0.8s ease-in-out;
+        }
+
+        .mix-catchphrase.floating {
+            animation: mixFloat 3s ease-in-out infinite;
+        }
+
+        /* Mobile touch feedback */
+        @media (hover: none) and (pointer: coarse) {
+            .mix-catchphrase:active {
+                transform: scale(0.98);
+                background: rgba(80, 200, 120, 0.3);
+            }
         }
 
         .mix-catchphrase::after {
@@ -112,7 +171,7 @@
             transform: translateY(-50%) scaleX(-1);
             width: 28px; /* Increased from 18px */
             height: 28px; /* Increased from 18px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M20 5 L20 35" stroke="%2350c878" stroke-width="3" opacity="0.8"/><path d="M8 15 Q12 12 16 15 Q20 18 24 15 Q28 12 32 15" stroke="%2350c878" stroke-width="2.5" fill="none" opacity="0.7"/><path d="M10 22 Q14 19 18 22 Q22 25 26 22 Q30 19 34 22" stroke="%2350c878" stroke-width="2.5" fill="none" opacity="0.7"/><circle cx="20" cy="8" r="3" fill="%2350c878" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M20 5 L20 35" stroke="%232d8f47" stroke-width="3" opacity="0.8"/><path d="M8 15 Q12 12 16 15 Q20 18 24 15 Q28 12 32 15" stroke="%232d8f47" stroke-width="2.5" fill="none" opacity="0.7"/><path d="M10 22 Q14 19 18 22 Q22 25 26 22 Q30 19 34 22" stroke="%232d8f47" stroke-width="2.5" fill="none" opacity="0.7"/><circle cx="20" cy="8" r="3" fill="%232d8f47" opacity="0.6"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -464,7 +523,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.8rem;
-            color: #50c878;
+            color: #2d8f47;
             font-weight: 500;
             font-size: 1rem;
             position: relative;
@@ -479,7 +538,7 @@
             transform: translateY(-50%);
             width: 28px; /* Increased from 18px */
             height: 28px; /* Increased from 18px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10 35 L40 35 L38 45 L12 45 Z" fill="none" stroke="%2350c878" stroke-width="3" opacity="0.8"/><path d="M10 35 Q5 25 12 22 Q15 15 25 18 Q35 15 38 22 Q45 25 40 35" fill="none" stroke="%2350c878" stroke-width="3" opacity="0.8"/><circle cx="25" cy="30" r="2.5" fill="%23ffffff" opacity="0.9"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10 35 L40 35 L38 45 L12 45 Z" fill="none" stroke="%232d8f47" stroke-width="3" opacity="0.8"/><path d="M10 35 Q5 25 12 22 Q15 15 25 18 Q35 15 38 22 Q45 25 40 35" fill="none" stroke="%232d8f47" stroke-width="3" opacity="0.8"/><circle cx="25" cy="30" r="2.5" fill="%23ffffff" opacity="0.9"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -492,7 +551,7 @@
             transform: translateY(-50%);
             width: 25px; /* Increased from 16px */
             height: 28px; /* Increased from 18px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 45"><path d="M8 15 L8 35 Q8 38 12 38 L28 38 Q32 38 32 35 L32 15 Z" fill="%2350c878" stroke="%238B4513" stroke-width="2.5" opacity="0.8"/><path d="M32 22 Q38 22 38 28 Q38 32 32 32" fill="none" stroke="%238B4513" stroke-width="2" opacity="0.7"/><path d="M15 8 Q18 5 15 2" stroke="%2350c878" stroke-width="2" opacity="0.6"/><path d="M20 8 Q23 5 20 2" stroke="%2350c878" stroke-width="2" opacity="0.6"/><path d="M25 8 Q28 5 25 2" stroke="%2350c878" stroke-width="2" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 45"><path d="M8 15 L8 35 Q8 38 12 38 L28 38 Q32 38 32 35 L32 15 Z" fill="%232d8f47" stroke="%238B4513" stroke-width="2.5" opacity="0.8"/><path d="M32 22 Q38 22 38 28 Q38 32 32 32" fill="none" stroke="%238B4513" stroke-width="2" opacity="0.7"/><path d="M15 8 Q18 5 15 2" stroke="%232d8f47" stroke-width="2" opacity="0.6"/><path d="M20 8 Q23 5 20 2" stroke="%232d8f47" stroke-width="2" opacity="0.6"/><path d="M25 8 Q28 5 25 2" stroke="%232d8f47" stroke-width="2" opacity="0.6"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -518,7 +577,7 @@
             transform: translateY(-50%);
             width: 28px; /* Increased from 18px */
             height: 25px; /* Increased from 16px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 40"><path d="M5 25 Q22 18 40 25 Q35 32 22 30 Q10 32 5 25" fill="none" stroke="%2350c878" stroke-width="3" opacity="0.8"/><path d="M28 8 L30 32" stroke="%23D2B48C" stroke-width="2.5" opacity="0.8"/><path d="M32 10 L34 34" stroke="%23D2B48C" stroke-width="2.5" opacity="0.8"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 40"><path d="M5 25 Q22 18 40 25 Q35 32 22 30 Q10 32 5 25" fill="none" stroke="%232d8f47" stroke-width="3" opacity="0.8"/><path d="M28 8 L30 32" stroke="%23D2B48C" stroke-width="2.5" opacity="0.8"/><path d="M32 10 L34 34" stroke="%23D2B48C" stroke-width="2.5" opacity="0.8"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -531,7 +590,7 @@
             transform: translateY(-50%);
             width: 25px; /* Increased from 16px */
             height: 28px; /* Increased from 18px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 45"><path d="M15 35 L15 42 L25 42 L25 35" stroke="%2350c878" stroke-width="3.5" opacity="0.8"/><circle cx="12" cy="22" r="5" fill="%2350c878" opacity="0.7"/><circle cx="20" cy="18" r="6" fill="%2350c878" opacity="0.8"/><circle cx="28" cy="22" r="5" fill="%2350c878" opacity="0.7"/><circle cx="16" cy="10" r="4" fill="%2350c878" opacity="0.6"/><circle cx="24" cy="10" r="4" fill="%2350c878" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 45"><path d="M15 35 L15 42 L25 42 L25 35" stroke="%232d8f47" stroke-width="3.5" opacity="0.8"/><circle cx="12" cy="22" r="5" fill="%232d8f47" opacity="0.7"/><circle cx="20" cy="18" r="6" fill="%232d8f47" opacity="0.8"/><circle cx="28" cy="22" r="5" fill="%232d8f47" opacity="0.7"/><circle cx="16" cy="10" r="4" fill="%232d8f47" opacity="0.6"/><circle cx="24" cy="10" r="4" fill="%232d8f47" opacity="0.6"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -544,7 +603,7 @@
             transform: translateY(-50%);
             width: 25px; /* Increased from 16px */
             height: 28px; /* Increased from 18px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 45"><path d="M20 5 L20 38" stroke="%23D2B48C" stroke-width="3.5" opacity="0.8"/><path d="M8 15 Q12 12 16 15 Q20 18 24 15 Q28 12 32 15" stroke="%2350c878" stroke-width="3" fill="none" opacity="0.7"/><path d="M10 25 Q14 22 18 25 Q22 28 26 25 Q30 22 34 25" stroke="%2350c878" stroke-width="3" fill="none" opacity="0.7"/><circle cx="20" cy="8" r="3.5" fill="%23D2B48C" opacity="0.8"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 45"><path d="M20 5 L20 38" stroke="%23D2B48C" stroke-width="3.5" opacity="0.8"/><path d="M8 15 Q12 12 16 15 Q20 18 24 15 Q28 12 32 15" stroke="%232d8f47" stroke-width="3" fill="none" opacity="0.7"/><path d="M10 25 Q14 22 18 25 Q22 28 26 25 Q30 22 34 25" stroke="%232d8f47" stroke-width="3" fill="none" opacity="0.7"/><circle cx="20" cy="8" r="3.5" fill="%23D2B48C" opacity="0.8"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -557,7 +616,7 @@
             transform: translateY(-50%);
             width: 25px; /* Increased from 16px */
             height: 25px; /* Increased from 16px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M5 5 L35 5 L35 35 L5 35 Z" fill="none" stroke="%2350c878" stroke-width="3" opacity="0.7"/><path d="M10 12 L30 12" stroke="%2350c878" stroke-width="2.5" opacity="0.8"/><path d="M10 18 L28 18" stroke="%2350c878" stroke-width="2.5" opacity="0.8"/><path d="M10 24 L30 24" stroke="%2350c878" stroke-width="2.5" opacity="0.8"/><path d="M10 30 L25 30" stroke="%2350c878" stroke-width="2.5" opacity="0.8"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M5 5 L35 5 L35 35 L5 35 Z" fill="none" stroke="%232d8f47" stroke-width="3" opacity="0.7"/><path d="M10 12 L30 12" stroke="%232d8f47" stroke-width="2.5" opacity="0.8"/><path d="M10 18 L28 18" stroke="%232d8f47" stroke-width="2.5" opacity="0.8"/><path d="M10 24 L30 24" stroke="%232d8f47" stroke-width="2.5" opacity="0.8"/><path d="M10 30 L25 30" stroke="%232d8f47" stroke-width="2.5" opacity="0.8"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -600,7 +659,7 @@
         }
 
         .btn-primary {
-            background: #50c878;
+            background: #2d8f47;
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 12px;
@@ -797,7 +856,7 @@
             width: 120px; /* Increased from 80px */
             height: 90px; /* Increased from 60px */
             margin: 0 auto 1.5rem;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><ellipse cx="50" cy="65" rx="35" ry="8" fill="%2350c878" opacity="0.5"/><path d="M15 65 Q50 50 85 65 Q75 75 50 72 Q25 75 15 65" fill="%2350c878" opacity="0.6"/><path d="M25 60 Q35 55 45 60 Q55 55 65 60 Q70 65 75 60" stroke="%2350c878" stroke-width="3" fill="none" opacity="0.7"/><path d="M30 65 Q40 60 50 65 Q60 60 70 65" stroke="%2350c878" stroke-width="3" fill="none" opacity="0.7"/><path d="M65 35 L70 65" stroke="%23D2B48C" stroke-width="3.5" opacity="0.8"/><path d="M70 38 L75 68" stroke="%23D2B48C" stroke-width="3.5" opacity="0.8"/><path d="M35 25 Q40 20 35 15 Q30 10 35 5" stroke="%2350c878" stroke-width="2.5" fill="none" opacity="0.6"/><path d="M50 30 Q55 25 50 20 Q45 15 50 10" stroke="%2350c878" stroke-width="2.5" fill="none" opacity="0.6"/><path d="M65 25 Q70 20 65 15 Q60 10 65 5" stroke="%2350c878" stroke-width="2.5" fill="none" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><ellipse cx="50" cy="65" rx="35" ry="8" fill="%232d8f47" opacity="0.5"/><path d="M15 65 Q50 50 85 65 Q75 75 50 72 Q25 75 15 65" fill="%232d8f47" opacity="0.6"/><path d="M25 60 Q35 55 45 60 Q55 55 65 60 Q70 65 75 60" stroke="%232d8f47" stroke-width="3" fill="none" opacity="0.7"/><path d="M30 65 Q40 60 50 65 Q60 60 70 65" stroke="%232d8f47" stroke-width="3" fill="none" opacity="0.7"/><path d="M65 35 L70 65" stroke="%23D2B48C" stroke-width="3.5" opacity="0.8"/><path d="M70 38 L75 68" stroke="%23D2B48C" stroke-width="3.5" opacity="0.8"/><path d="M35 25 Q40 20 35 15 Q30 10 35 5" stroke="%232d8f47" stroke-width="2.5" fill="none" opacity="0.6"/><path d="M50 30 Q55 25 50 20 Q45 15 50 10" stroke="%232d8f47" stroke-width="2.5" fill="none" opacity="0.6"/><path d="M65 25 Q70 20 65 15 Q60 10 65 5" stroke="%232d8f47" stroke-width="2.5" fill="none" opacity="0.6"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -814,7 +873,7 @@
                 radial-gradient(circle at 15% 25%, rgba(80, 200, 120, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 85% 75%, rgba(69, 179, 107, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 45% 85%, rgba(102, 221, 146, 0.06) 0%, transparent 50%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g fill="none" stroke="%2350c878" stroke-width="2" opacity="0.6"><circle cx="50" cy="80" r="3"/><circle cx="350" cy="120" r="2.5"/><circle cx="80" cy="350" r="2"/><circle cx="320" cy="60" r="2.5"/><circle cx="60" cy="300" r="2"/><circle cx="340" cy="320" r="2.5"/></g><g fill="none" stroke="%23ff9999" stroke-width="2" opacity="0.5"><path d="M20 150 Q25 145 30 150 Q35 155 40 150"/><path d="M360 280 Q365 275 370 280 Q375 285 380 280"/><path d="M80 50 Q85 45 90 50 Q95 55 100 50"/><path d="M300 350 Q305 345 310 350 Q315 355 320 350"/></g><g fill="none" stroke="%23DAA520" stroke-width="2" opacity="0.6"><ellipse cx="90" cy="330" rx="8" ry="3"/><ellipse cx="310" cy="70" rx="6" ry="2.5"/><ellipse cx="50" cy="250" rx="4" ry="2"/><ellipse cx="350" cy="300" rx="5" ry="2.5"/></g><g fill="%2350c878" opacity="0.3"><circle cx="70" cy="70" r="1"/><circle cx="330" cy="340" r="1.5"/><circle cx="40" cy="180" r="1"/><circle cx="360" cy="220" r="1.2"/></g><g fill="none" stroke="%23D2B48C" stroke-width="2" opacity="0.5"><path d="M350 30 L350 40"/><path d="M350 35 Q345 35 345 40 Q350 42 355 40 Q355 35 350 35"/><path d="M30 350 L40 350"/><path d="M35 345 Q35 350 40 350 Q42 345 40 340 Q35 340 35 345"/></g><g fill="none" stroke="%23ff9999" stroke-width="1.5" opacity="0.4"><path d="M380 80 Q375 75 370 80 Q365 85 370 90 Q375 85 380 80"/><path d="M20 320 Q15 315 10 320 Q5 325 10 330 Q15 325 20 320"/></g></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><g fill="none" stroke="%232d8f47" stroke-width="2" opacity="0.6"><circle cx="50" cy="80" r="3"/><circle cx="350" cy="120" r="2.5"/><circle cx="80" cy="350" r="2"/><circle cx="320" cy="60" r="2.5"/><circle cx="60" cy="300" r="2"/><circle cx="340" cy="320" r="2.5"/></g><g fill="none" stroke="%23ff9999" stroke-width="2" opacity="0.5"><path d="M20 150 Q25 145 30 150 Q35 155 40 150"/><path d="M360 280 Q365 275 370 280 Q375 285 380 280"/><path d="M80 50 Q85 45 90 50 Q95 55 100 50"/><path d="M300 350 Q305 345 310 350 Q315 355 320 350"/></g><g fill="none" stroke="%23DAA520" stroke-width="2" opacity="0.6"><ellipse cx="90" cy="330" rx="8" ry="3"/><ellipse cx="310" cy="70" rx="6" ry="2.5"/><ellipse cx="50" cy="250" rx="4" ry="2"/><ellipse cx="350" cy="300" rx="5" ry="2.5"/></g><g fill="%232d8f47" opacity="0.3"><circle cx="70" cy="70" r="1"/><circle cx="330" cy="340" r="1.5"/><circle cx="40" cy="180" r="1"/><circle cx="360" cy="220" r="1.2"/></g><g fill="none" stroke="%23D2B48C" stroke-width="2" opacity="0.5"><path d="M350 30 L350 40"/><path d="M350 35 Q345 35 345 40 Q350 42 355 40 Q355 35 350 35"/><path d="M30 350 L40 350"/><path d="M35 345 Q35 350 40 350 Q42 345 40 340 Q35 340 35 345"/></g><g fill="none" stroke="%23ff9999" stroke-width="1.5" opacity="0.4"><path d="M380 80 Q375 75 370 80 Q365 85 370 90 Q375 85 380 80"/><path d="M20 320 Q15 315 10 320 Q5 325 10 330 Q15 325 20 320"/></g></svg>');
             background-size: 100% 100%, 100% 100%, 100% 100%, 400px 400px;
             background-repeat: no-repeat, no-repeat, no-repeat, repeat;
             background-position: 0 0, 0 0, 0 0, 0 0;
@@ -884,7 +943,7 @@
             right: 1.5rem;
             width: 35px; /* Increased from 20px */
             height: 35px; /* Increased from 20px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10 40 L25 10 L40 40 Z" fill="none" stroke="%23ff9999" stroke-width="3.5" opacity="0.8"/><circle cx="22" cy="30" r="3" fill="%23ff6b6b" opacity="0.7"/><circle cx="30" cy="32" r="2.5" fill="%2350c878" opacity="0.7"/><circle cx="18" cy="25" r="2" fill="%23DAA520" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10 40 L25 10 L40 40 Z" fill="none" stroke="%23ff9999" stroke-width="3.5" opacity="0.8"/><circle cx="22" cy="30" r="3" fill="%23ff6b6b" opacity="0.7"/><circle cx="30" cy="32" r="2.5" fill="%232d8f47" opacity="0.7"/><circle cx="18" cy="25" r="2" fill="%23DAA520" opacity="0.6"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
             opacity: 0.9; /* Increased from 0.6 */
@@ -910,7 +969,7 @@
             right: 1.5rem;
             width: 32px; /* Increased from 18px */
             height: 35px; /* Increased from 20px */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 50"><path d="M8 20 L8 40 Q8 43 12 43 L33 43 Q37 43 37 40 L37 20 Z" fill="%2350c878" stroke="%238B4513" stroke-width="2.5" opacity="0.8"/><path d="M37 27 Q43 27 43 33 Q43 37 37 37" fill="none" stroke="%238B4513" stroke-width="2.5" opacity="0.7"/><path d="M15 12 Q18 8 15 4" stroke="%2350c878" stroke-width="2" opacity="0.6"/><path d="M22 12 Q25 8 22 4" stroke="%2350c878" stroke-width="2" opacity="0.6"/><path d="M29 12 Q32 8 29 4" stroke="%2350c878" stroke-width="2" opacity="0.6"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 50"><path d="M8 20 L8 40 Q8 43 12 43 L33 43 Q37 43 37 40 L37 20 Z" fill="%232d8f47" stroke="%238B4513" stroke-width="2.5" opacity="0.8"/><path d="M37 27 Q43 27 43 33 Q43 37 37 37" fill="none" stroke="%238B4513" stroke-width="2.5" opacity="0.7"/><path d="M15 12 Q18 8 15 4" stroke="%232d8f47" stroke-width="2" opacity="0.6"/><path d="M22 12 Q25 8 22 4" stroke="%232d8f47" stroke-width="2" opacity="0.6"/><path d="M29 12 Q32 8 29 4" stroke="%232d8f47" stroke-width="2" opacity="0.6"/></svg>');
             background-repeat: no-repeat;
             background-size: contain;
             opacity: 0.9; /* Increased from 0.6 */
@@ -933,8 +992,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>My Recipe Collection</h1>
-            <p>A cozy space for all my favorite recipes! 💕</p>
+            <h1>Chef Pallawi's Cookbook!</h1>
+            <p>A cozy space for all my favorite recipes! 💕 Let me cook! 🔥</p>
             <div class="mix-catchphrase">Mix! Mix! Mix!</div>
         </div>
 
@@ -1417,6 +1476,180 @@
                 closeViewModal();
             }
         }
+
+        // Intersection Observer for scroll-based animations
+        function initScrollAnimations() {
+            const catchphrase = document.querySelector('.mix-catchphrase');
+            if (!catchphrase) return;
+
+            // Configuration for the intersection observer
+            const observerOptions = {
+                root: null, // Use viewport as root
+                rootMargin: '0px',
+                threshold: 0.5 // Trigger when 50% of element is visible
+            };
+
+            // Create intersection observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Element is in view - trigger shake animation
+                        triggerCatchphraseAnimation();
+                    }
+                });
+            }, observerOptions);
+
+            // Start observing the catchphrase element
+            observer.observe(catchphrase);
+
+            // Also add scroll listener for continuous effects
+            let scrollTimeout;
+            let lastScrollY = window.scrollY;
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                
+                // Clear previous timeout
+                clearTimeout(scrollTimeout);
+                
+                // Check if user is actively scrolling past the catchphrase
+                if (Math.abs(currentScrollY - lastScrollY) > 5) {
+                    const rect = catchphrase.getBoundingClientRect();
+                    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+                    
+                    if (isInViewport) {
+                        // Add a subtle continuous float animation while scrolling
+                        catchphrase.classList.add('floating');
+                        
+                        // Remove floating animation after scroll stops
+                        scrollTimeout = setTimeout(() => {
+                            catchphrase.classList.remove('floating');
+                        }, 500);
+                    }
+                }
+                
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+        }
+
+        // Function to trigger the shake animation
+        function triggerCatchphraseAnimation() {
+            const catchphrase = document.querySelector('.mix-catchphrase');
+            if (!catchphrase) return;
+            
+            // Remove any existing animation classes
+            catchphrase.classList.remove('animate-in-view');
+            
+            // Force reflow to ensure class removal takes effect
+            catchphrase.offsetHeight;
+            
+            // Add animation class
+            catchphrase.classList.add('animate-in-view');
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                catchphrase.classList.remove('animate-in-view');
+            }, 800);
+        }
+
+        // Alternative: Trigger animation based on scroll speed
+        function initSpeedBasedAnimation() {
+            const catchphrase = document.querySelector('.mix-catchphrase');
+            if (!catchphrase) return;
+            
+            let lastScrollTop = 0;
+            let scrollSpeed = 0;
+            let animationCooldown = false;
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                scrollSpeed = Math.abs(currentScrollTop - lastScrollTop);
+                
+                // If scrolling fast enough and element is in view
+                if (scrollSpeed > 5 && !animationCooldown) {
+                    const rect = catchphrase.getBoundingClientRect();
+                    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+                    
+                    if (isInViewport) {
+                        triggerCatchphraseAnimation();
+                        
+                        // Cooldown to prevent too frequent animations
+                        animationCooldown = true;
+                        setTimeout(() => {
+                            animationCooldown = false;
+                        }, 1500);
+                    }
+                }
+                
+                lastScrollTop = currentScrollTop;
+            }, { passive: true });
+        }
+
+        // Enhanced version: Multiple trigger conditions
+        function initAdvancedScrollAnimation() {
+            const catchphrase = document.querySelector('.mix-catchphrase');
+            if (!catchphrase) return;
+            
+            let hasTriggered = false;
+            let lastTriggerTime = 0;
+            
+            // Intersection Observer for initial view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasTriggered) {
+                        triggerCatchphraseAnimation();
+                        hasTriggered = true;
+                        lastTriggerTime = Date.now();
+                    }
+                });
+            }, {
+                threshold: 0.6
+            });
+            
+            observer.observe(catchphrase);
+            
+            // Touch/click trigger for mobile
+            catchphrase.addEventListener('click', () => {
+                triggerCatchphraseAnimation();
+            });
+            
+            // Re-trigger on scroll direction change
+            let lastScrollDirection = null;
+            let lastScrollY = window.scrollY;
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                const currentDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+                
+                if (currentDirection !== lastScrollDirection) {
+                    const rect = catchphrase.getBoundingClientRect();
+                    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+                    const timeSinceLastTrigger = Date.now() - lastTriggerTime;
+                    
+                    if (isInViewport && timeSinceLastTrigger > 2000) {
+                        triggerCatchphraseAnimation();
+                        lastTriggerTime = Date.now();
+                    }
+                }
+                
+                lastScrollDirection = currentDirection;
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Choose one of these initialization methods:
+            
+            // Option 1: Basic scroll animation (recommended)
+            initScrollAnimations();
+            
+            // Option 2: Speed-based animation (uncomment to use instead)
+            // initSpeedBasedAnimation();
+            
+            // Option 3: Advanced with multiple triggers (uncomment to use instead)
+            // initAdvancedScrollAnimation();
+        });
     </script>
 </body>
 </html>
