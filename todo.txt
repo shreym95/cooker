@@ -1,0 +1,7 @@
+ToDo List
+---------
+
+1. Search results in search bar, click and open modal directly
+2. Find a better background
+3. Landing page
+4. Add footer message
