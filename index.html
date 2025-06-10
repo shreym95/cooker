@@ -266,6 +266,144 @@
             opacity: 0.6;
         }
 
+        /* Search Dropdown Styles */
+        .search-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #e8f5e8;
+            border-top: none;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        .search-dropdown.show {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background: #f8fffe;
+            border-left: 3px solid #2d8f47;
+            padding-left: calc(1.5rem - 3px);
+        }
+
+        .search-result-icon {
+            width: 24px;
+            height: 24px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><ellipse cx="8" cy="12" rx="2.5" ry="5" fill="%232d8f47" opacity="0.7"/><ellipse cx="15" cy="10" rx="2" ry="4" fill="%232d8f47" opacity="0.8"/><ellipse cx="22" cy="14" rx="2.5" ry="4.5" fill="%232d8f47" opacity="0.6"/><ellipse cx="12" cy="18" rx="2.3" ry="4.2" fill="%232d8f47" opacity="0.7"/><ellipse cx="18" cy="20" rx="2.1" ry="3.8" fill="%232d8f47" opacity="0.8"/></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            flex-shrink: 0;
+        }
+
+        .search-result-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .search-result-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .search-result-meta {
+            font-size: 0.8rem;
+            color: #6c757d;
+            opacity: 0.8;
+        }
+
+        .search-no-results {
+            padding: 1.5rem;
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 45px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #c0c0c0;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.2rem;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            display: none;
+        }
+
+        .clear-search.show {
+            display: block;
+        }
+
+        .clear-search:hover {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .search-active-filter {
+            display: none;
+            background: rgba(45, 143, 71, 0.1);
+            color: #2d8f47;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(45, 143, 71, 0.2);
+        }
+
+        .search-active-filter.show {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .clear-filter-btn {
+            background: none;
+            border: none;
+            color: #2d8f47;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.2rem;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            font-family: 'Material Symbols Outlined';
+        }
+
+        .clear-filter-btn:hover {
+            background: rgba(45, 143, 71, 0.1);
+        }
+
+        .clear-filter-btn::before {
+            content: 'close';
+        }
+
         @media (max-width: 768px) {
             .primary-controls {
                 flex-direction: column;
@@ -274,6 +412,10 @@
             
             .search-container {
                 max-width: 100%;
+            }
+
+            .search-dropdown {
+                max-height: 250px;
             }
         }
 
@@ -1004,9 +1146,18 @@
             </button>
             
             <div class="search-container">
-                <input type="text" id="searchBar" placeholder="Search recipes..." oninput="searchRecipes()">
+                <input type="text" id="searchBar" placeholder="Search recipes..." oninput="handleSearchInput()" onfocus="showSearchDropdown()" onblur="hideSearchDropdown()">
+                <button class="clear-search material-symbols-outlined" id="clearSearch" onclick="clearSearch()">close</button>
                 <span class="material-symbols-outlined search-icon">search</span>
+                <div class="search-dropdown" id="searchDropdown">
+                    <div id="searchResults"></div>
+                </div>
             </div>
+        </div>
+
+        <div class="search-active-filter" id="activeFilter">
+            <span id="filterText"></span>
+            <button class="clear-filter-btn" onclick="clearFilter()"></button>
         </div>
         
         <div class="backup-controls">
@@ -1087,6 +1238,8 @@
     <script>
         let recipes = [];
         let editingRecipeId = null;
+        let currentFilter = null;
+        let searchTimeout = null;
 
         // Initialize the app
         document.addEventListener('DOMContentLoaded', function() {
@@ -1098,6 +1251,9 @@
             if (form) {
                 form.addEventListener('submit', handleFormSubmit);
             }
+
+            // Initialize scroll animations
+            initScrollAnimations();
         });
 
         // Check if there's a shared recipe in the URL
@@ -1140,20 +1296,32 @@
         }
 
         // Display recipes on the page
-        function displayRecipes() {
+        function displayRecipes(filteredRecipes = null) {
             const grid = document.getElementById('recipeGrid');
             const emptyState = document.getElementById('emptyState');
+            const recipesToShow = filteredRecipes || recipes;
             
-            if (recipes.length === 0) {
+            if (recipesToShow.length === 0) {
                 grid.style.display = 'none';
                 emptyState.style.display = 'block';
+                if (filteredRecipes !== null) {
+                    emptyState.innerHTML = `
+                        <h3>No recipes found</h3>
+                        <p>Try a different search term or clear your filter</p>
+                    `;
+                } else {
+                    emptyState.innerHTML = `
+                        <h3>No recipes yet</h3>
+                        <p>Start building your collection by adding your first recipe!</p>
+                    `;
+                }
                 return;
             }
             
             grid.style.display = 'grid';
             emptyState.style.display = 'none';
             
-            grid.innerHTML = recipes.map(recipe => {
+            grid.innerHTML = recipesToShow.map(recipe => {
                 const metaParts = [];
                 if (recipe.prepTime) metaParts.push(`Prep time ${recipe.prepTime} min`);
                 if (recipe.cookTime) metaParts.push(`Cook time ${recipe.cookTime} min`);
@@ -1186,6 +1354,123 @@
                     </div>
                 </div>
             `}).join('');
+        }
+
+        // Enhanced search functionality with dropdown
+        function handleSearchInput() {
+            const query = document.getElementById('searchBar').value.trim();
+            const clearBtn = document.getElementById('clearSearch');
+            
+            // Show/hide clear button
+            if (query.length > 0) {
+                clearBtn.classList.add('show');
+            } else {
+                clearBtn.classList.remove('show');
+            }
+
+            // Debounce search to improve performance
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                updateSearchResults(query);
+            }, 150);
+        }
+
+        function updateSearchResults(query) {
+            const dropdown = document.getElementById('searchDropdown');
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (query.length === 0) {
+                dropdown.classList.remove('show');
+                return;
+            }
+
+            const searchResults = searchRecipes(query);
+            
+            if (searchResults.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="search-no-results">
+                        No recipes found for "${query}"
+                    </div>
+                `;
+            } else {
+                resultsContainer.innerHTML = searchResults.map(recipe => {
+                    const metaParts = [];
+                    if (recipe.prepTime) metaParts.push(`${recipe.prepTime}min prep`);
+                    if (recipe.cookTime) metaParts.push(`${recipe.cookTime}min cook`);
+                    if (recipe.servings) metaParts.push(`${recipe.servings} servings`);
+                    
+                    return `
+                        <div class="search-result-item" onclick="selectSearchResult('${recipe.id}', '${recipe.name.replace(/'/g, "\\'")}')">
+                            <div class="search-result-icon"></div>
+                            <div class="search-result-content">
+                                <div class="search-result-title">${recipe.name}</div>
+                                <div class="search-result-meta">${metaParts.join(' • ')}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            dropdown.classList.add('show');
+        }
+
+        function searchRecipes(query) {
+            const queryLower = query.toLowerCase();
+            return recipes.filter(recipe => 
+                recipe.name.toLowerCase().includes(queryLower) || 
+                recipe.description?.toLowerCase().includes(queryLower) ||
+                recipe.ingredients.toLowerCase().includes(queryLower) || 
+                recipe.instructions.toLowerCase().includes(queryLower)
+            );
+        }
+
+        function selectSearchResult(recipeId, recipeName) {
+            const recipe = recipes.find(r => r.id === recipeId);
+            if (!recipe) return;
+            
+            // Set the filter
+            currentFilter = recipeId;
+            
+            // Update UI
+            document.getElementById('searchBar').value = recipeName;
+            document.getElementById('clearSearch').classList.add('show');
+            document.getElementById('searchDropdown').classList.remove('show');
+            
+            // Show active filter
+            const activeFilter = document.getElementById('activeFilter');
+            const filterText = document.getElementById('filterText');
+            filterText.textContent = `Showing: ${recipeName}`;
+            activeFilter.classList.add('show');
+            
+            // Display only the selected recipe
+            displayRecipes([recipe]);
+        }
+
+        function showSearchDropdown() {
+            const query = document.getElementById('searchBar').value.trim();
+            if (query.length > 0) {
+                updateSearchResults(query);
+            }
+        }
+
+        function hideSearchDropdown() {
+            // Add a small delay to allow clicking on dropdown items
+            setTimeout(() => {
+                document.getElementById('searchDropdown').classList.remove('show');
+            }, 150);
+        }
+
+        function clearSearch() {
+            document.getElementById('searchBar').value = '';
+            document.getElementById('clearSearch').classList.remove('show');
+            document.getElementById('searchDropdown').classList.remove('show');
+            clearFilter();
+        }
+
+        function clearFilter() {
+            currentFilter = null;
+            document.getElementById('activeFilter').classList.remove('show');
+            displayRecipes(); // Show all recipes
         }
 
         // Open add recipe modal
@@ -1267,52 +1552,6 @@
             }
         }
 
-        // Search recipes
-        function searchRecipes() {
-            const query = document.getElementById('searchBar').value.toLowerCase();
-            const filteredRecipes = recipes.filter(recipe => 
-                recipe.name.toLowerCase().includes(query) || 
-                recipe.description?.toLowerCase().includes(query) ||
-                recipe.ingredients.toLowerCase().includes(query) || 
-                recipe.instructions.toLowerCase().includes(query)
-            );
-            
-            const grid = document.getElementById('recipeGrid');
-            grid.innerHTML = filteredRecipes.map(recipe => {
-                const metaParts = [];
-                if (recipe.prepTime) metaParts.push(`Prep time ${recipe.prepTime} min`);
-                if (recipe.cookTime) metaParts.push(`Cook time ${recipe.cookTime} min`);
-                if (recipe.servings) metaParts.push(`Serves ${recipe.servings}`);
-                
-                return `
-                <div class="recipe-card">
-                    <h3>${recipe.name}</h3>
-                    ${metaParts.length > 0 ? `<div class="recipe-meta">${metaParts.join(' • ')}</div>` : ''}
-                    <div class="recipe-description">
-                        ${recipe.description || 'No description provided'}
-                    </div>
-                    <div class="recipe-actions">
-                        <button class="btn btn-view" onclick="viewRecipe(${JSON.stringify(recipe).replace(/"/g, '&quot;')})">
-                            <span class="material-symbols-outlined">visibility</span>
-                            View
-                        </button>
-                        <button class="btn btn-edit" onclick="editRecipe('${recipe.id}')">
-                            <span class="material-symbols-outlined">edit</span>
-                            Edit
-                        </button>
-                        <button class="btn btn-share" onclick="shareRecipe('${recipe.id}')">
-                            <span class="material-symbols-outlined">share</span>
-                            Share
-                        </button>
-                        <button class="btn btn-delete" onclick="deleteRecipe('${recipe.id}')">
-                            <span class="material-symbols-outlined">delete</span>
-                            Delete
-                        </button>
-                    </div>
-                </div>
-            `}).join('');
-        }
-
         // Fallback copy function
         function fallbackCopyToClipboard(text) {
             const textArea = document.createElement('textarea');
@@ -1392,6 +1631,7 @@
                     if (confirm(confirmMessage)) {
                         recipes = backupData.recipes;
                         saveRecipes();
+                        clearFilter(); // Clear any active filters
                         displayRecipes();
                         alert(`Successfully restored ${recipes.length} recipes!`);
                     }
@@ -1416,7 +1656,21 @@
             if (confirm('Are you sure you want to delete this recipe?')) {
                 recipes = recipes.filter(r => r.id !== id);
                 saveRecipes();
-                displayRecipes();
+                
+                // If we're currently filtering for this recipe, clear the filter
+                if (currentFilter === id) {
+                    clearFilter();
+                } else if (currentFilter) {
+                    // Refresh the filtered view
+                    const filteredRecipe = recipes.find(r => r.id === currentFilter);
+                    if (filteredRecipe) {
+                        displayRecipes([filteredRecipe]);
+                    } else {
+                        clearFilter();
+                    }
+                } else {
+                    displayRecipes();
+                }
             }
         }
 
@@ -1452,7 +1706,19 @@
             }
             
             saveRecipes();
-            displayRecipes();
+            
+            // Refresh display based on current filter
+            if (currentFilter) {
+                const filteredRecipe = recipes.find(r => r.id === currentFilter);
+                if (filteredRecipe) {
+                    displayRecipes([filteredRecipe]);
+                } else {
+                    clearFilter();
+                }
+            } else {
+                displayRecipes();
+            }
+            
             closeModal();
         }
 
@@ -1477,51 +1743,42 @@
             }
         }
 
-        // Intersection Observer for scroll-based animations
+        // Scroll animation functions
         function initScrollAnimations() {
             const catchphrase = document.querySelector('.mix-catchphrase');
             if (!catchphrase) return;
 
-            // Configuration for the intersection observer
             const observerOptions = {
-                root: null, // Use viewport as root
+                root: null,
                 rootMargin: '0px',
-                threshold: 0.5 // Trigger when 50% of element is visible
+                threshold: 0.5
             };
 
-            // Create intersection observer
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Element is in view - trigger shake animation
                         triggerCatchphraseAnimation();
                     }
                 });
             }, observerOptions);
 
-            // Start observing the catchphrase element
             observer.observe(catchphrase);
 
-            // Also add scroll listener for continuous effects
             let scrollTimeout;
             let lastScrollY = window.scrollY;
             
             window.addEventListener('scroll', () => {
                 const currentScrollY = window.scrollY;
                 
-                // Clear previous timeout
                 clearTimeout(scrollTimeout);
                 
-                // Check if user is actively scrolling past the catchphrase
                 if (Math.abs(currentScrollY - lastScrollY) > 5) {
                     const rect = catchphrase.getBoundingClientRect();
                     const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
                     
                     if (isInViewport) {
-                        // Add a subtle continuous float animation while scrolling
                         catchphrase.classList.add('floating');
                         
-                        // Remove floating animation after scroll stops
                         scrollTimeout = setTimeout(() => {
                             catchphrase.classList.remove('floating');
                         }, 500);
@@ -1532,124 +1789,18 @@
             }, { passive: true });
         }
 
-        // Function to trigger the shake animation
         function triggerCatchphraseAnimation() {
             const catchphrase = document.querySelector('.mix-catchphrase');
             if (!catchphrase) return;
             
-            // Remove any existing animation classes
             catchphrase.classList.remove('animate-in-view');
-            
-            // Force reflow to ensure class removal takes effect
             catchphrase.offsetHeight;
-            
-            // Add animation class
             catchphrase.classList.add('animate-in-view');
             
-            // Remove animation class after animation completes
             setTimeout(() => {
                 catchphrase.classList.remove('animate-in-view');
             }, 800);
         }
-
-        // Alternative: Trigger animation based on scroll speed
-        function initSpeedBasedAnimation() {
-            const catchphrase = document.querySelector('.mix-catchphrase');
-            if (!catchphrase) return;
-            
-            let lastScrollTop = 0;
-            let scrollSpeed = 0;
-            let animationCooldown = false;
-            
-            window.addEventListener('scroll', () => {
-                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                scrollSpeed = Math.abs(currentScrollTop - lastScrollTop);
-                
-                // If scrolling fast enough and element is in view
-                if (scrollSpeed > 5 && !animationCooldown) {
-                    const rect = catchphrase.getBoundingClientRect();
-                    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-                    
-                    if (isInViewport) {
-                        triggerCatchphraseAnimation();
-                        
-                        // Cooldown to prevent too frequent animations
-                        animationCooldown = true;
-                        setTimeout(() => {
-                            animationCooldown = false;
-                        }, 1500);
-                    }
-                }
-                
-                lastScrollTop = currentScrollTop;
-            }, { passive: true });
-        }
-
-        // Enhanced version: Multiple trigger conditions
-        function initAdvancedScrollAnimation() {
-            const catchphrase = document.querySelector('.mix-catchphrase');
-            if (!catchphrase) return;
-            
-            let hasTriggered = false;
-            let lastTriggerTime = 0;
-            
-            // Intersection Observer for initial view
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !hasTriggered) {
-                        triggerCatchphraseAnimation();
-                        hasTriggered = true;
-                        lastTriggerTime = Date.now();
-                    }
-                });
-            }, {
-                threshold: 0.6
-            });
-            
-            observer.observe(catchphrase);
-            
-            // Touch/click trigger for mobile
-            catchphrase.addEventListener('click', () => {
-                triggerCatchphraseAnimation();
-            });
-            
-            // Re-trigger on scroll direction change
-            let lastScrollDirection = null;
-            let lastScrollY = window.scrollY;
-            
-            window.addEventListener('scroll', () => {
-                const currentScrollY = window.scrollY;
-                const currentDirection = currentScrollY > lastScrollY ? 'down' : 'up';
-                
-                if (currentDirection !== lastScrollDirection) {
-                    const rect = catchphrase.getBoundingClientRect();
-                    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-                    const timeSinceLastTrigger = Date.now() - lastTriggerTime;
-                    
-                    if (isInViewport && timeSinceLastTrigger > 2000) {
-                        triggerCatchphraseAnimation();
-                        lastTriggerTime = Date.now();
-                    }
-                }
-                
-                lastScrollDirection = currentDirection;
-                lastScrollY = currentScrollY;
-            }, { passive: true });
-        }
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Choose one of these initialization methods:
-            
-            // Option 1: Basic scroll animation (recommended)
-            initScrollAnimations();
-            
-            // Option 2: Speed-based animation (uncomment to use instead)
-            // initSpeedBasedAnimation();
-            
-            // Option 3: Advanced with multiple triggers (uncomment to use instead)
-            // initAdvancedScrollAnimation();
-        });
     </script>
 </body>
 </html>
