@@ -19,8 +19,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-        }
+            /* overflow: hidden removed */
+}
 
         .background-animation {
             position: fixed;
@@ -93,23 +93,26 @@
         }
 
         .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgb(44 62 80 / 58%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            animation: fadeIn 1s ease-out;
-        }
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(44, 62, 80, 0.7);
+                backdrop-filter: blur(8px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                animation: fadeIn 1s ease-out;
+                overflow-y: auto;      /* ← Added to enable vertical scrolling */
+                padding: 20px 0;       /* ← Added padding for breathing room */
+}
 
         .popup {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 15px;
+            padding: 20px 40px;
             max-width: 500px;
             width: 90%;
             text-align: center;
@@ -119,6 +122,7 @@
             animation: popupFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
             position: relative;
             border: 2px solid rgba(45, 143, 71, 0.16);
+            margin-top: 20px;
         }
 
         .popup-icon {
@@ -310,6 +314,7 @@
             .popup {
                 padding: 30px 20px;
                 margin: 20px;
+                max-height: none;      /* ← Removed height constraint */
             }
             
             .popup h1 {
@@ -318,6 +323,11 @@
             
             .popup-icon {
                 font-size: 50px;
+            }
+
+            .popup-overlay {
+                align-items: flex-start;  /* ← Changed from center to start */
+                padding: 40px 0;          /* ← Increased padding for mobile */
             }
 
             .mix-catchphrase::before,
@@ -345,7 +355,7 @@
             <p>Hi baby! Happy birthday 🥹 You're turning one (26) today, and I couldn't be more grateful for your presence in my life. You've made my life so worth living, that I long for your presence in everything I do. 
             There's so much we've done and accomplished together, and I will always cherish those moments. 
             <br><br> One of the biggest things we've shared is cooking together, and so, I want to celebrate you and your love for cooking and teaching it to me as well.
-            This is my gift to you baby. Your own cookbook, filled with all the recipes we've made together, and some of your favorites.
+            This is my gift to you baby. Your own personal recipe cookbook website, made specifically for you, with love 🥹 Add, edit and share your recipes, in a more beautiful way hehe. Google Keep can go to hell.  
             <br><br> I hope you love it as much as I love you ❤️
         </p>
             <button class="popup-button" onclick="openRecipeApp()">Click the button if you love me 😤</button>

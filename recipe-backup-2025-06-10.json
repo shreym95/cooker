@@ -1,0 +1,259 @@
+{
+  "recipes": [
+    {
+      "id": "1749200000001",
+      "name": "Caramelized Onion Spaghetti",
+      "description": "Creamy pasta with beautifully caramelized onions and herbs",
+      "prepTime": "15",
+      "cookTime": "45",
+      "servings": "3",
+      "ingredients": "Butter (generous amount)\n2 medium onions, thinly sliced\nSalt\n4-5 garlic cloves, minced\nMixed herbs\nBlack pepper\nFresh cream\nSpaghetti\nCheese\nFresh parsley",
+      "instructions": "Take butter, lots of it. Put thinly sliced onions, put thoda salt, add water, put lid till water evaporates thoda. \nOpen lid, caramelize the onions, add water if they stick. This will take some time... when nearly caramelized, add some garlic. Add herbs, black pepper, salt, fresh cream. Then add the spaghetti to this pan, and add pasta water if required. Add cheese and parsley in the pan itself and then simmer a little bit. Taste it and done!",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000002",
+      "name": "Garlic Bread",
+      "description": "Crispy homemade garlic bread with herbs and butter",
+      "prepTime": "10",
+      "cookTime": "5",
+      "servings": "4",
+      "ingredients": "Butter (softened, room temperature)\n6-7 garlic cloves\nFresh coriander, finely chopped\nSalt (pinch)\nOregano\nChilli flakes\nBread slices\nCheese (optional)",
+      "instructions": "First take your butter. If it is straight out of the freezer, put it in the microwave for aese 10-15 seconds, not completely melting it, just some parts. Basically, you have to soften it, but not melt it. Room temperature butter works better. Mix it with a spoon.\nThen you take 6-7 cloves of garlic and grate them... or you can also crush them with the \"mortar and pestle\" till you get a spreadable paste-like consistency. \nThen finely chop the coriander. Add the garlic and coriander in the butter. Then add a litttlleeee salt (zyada mat daalna hehe), oregano, chilli flakes. Mix mix mix! \nOnce it is ready, take your bread slices, spread the butter mix on one side jaise jam lagate hain. If you want to use a sandwich maker, take aese 2 bread slices, spread the garlic butter on them, put them together (you can add cheese between them too). Then put them in the sandwich maker. When you take them out, you can have the slices separately too. If you want to make individuals, you can use a pan too. Done!",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000003",
+      "name": "Vegetable Momos",
+      "description": "Steamed dumplings with cabbage and vegetable filling",
+      "prepTime": "45",
+      "cookTime": "15",
+      "servings": "4",
+      "ingredients": "Cabbage, grated (excess water removed)\n1 medium onion, finely chopped\n4-5 garlic cloves, chopped\n1 green chilli, chopped\n1-2 inches ginger, grated\nOil\nVinegar (1/2 tsp)\nBlack pepper\nSalt\nSoy sauce\nMaida (all-purpose flour)\nOil and salt for dough",
+      "instructions": "Grate cabbage, and make sure you remove the excess water. Cut one medium sized pyaaz into small pieces. Chop 4-5 cloves of garlic and 1 mirchi. Grate some adrak - about 1-2 inches. In a pan, take some oil, put the garlic and mirchi in it, and right afterwards put the ginger and onions, saute for a bit, should remain crunchy, add about half spoon vinegar. Add the grated cabbage, mix it together, add some black pepper. Turn off the gas, don't overcook. Let it cool down. After it has cooled, add salt and soy sauce, keep tasting as you go, and done with the filling.\n\nFor the dough, take maida, make a hole in the middle, put some oil and salt, mix it well with the flour. Keep adding water and kneeding it slowly. Make the momos. Let them steam for 15 mins on medium flame. Make the chutney. And doneee!",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000004",
+      "name": "Samosas with Potato Filling",
+      "description": "Crispy fried pastries with spiced potato filling",
+      "prepTime": "60",
+      "cookTime": "20",
+      "servings": "8",
+      "ingredients": "For Pudina Paste:\nHandful of mint leaves\n2 inch ginger\nHandful of coriander\nLittle fennel seeds\n2 green chillies\nWater\n\nFor Masala Mix:\n1 tsp kasuri methi\n1/2 tsp black salt\n1 tsp amchoor powder\n1 tsp salt\n1/2 tsp red chilli powder\n1/2 tsp coriander powder\n1 tsp roasted cumin powder\n1/2 tsp black pepper\nPinch of garam masala\n\nFor Filling:\n6 potatoes\n2 tbsp oil\n\nFor Dough:\n2.5 cups maida\n3 tbsp oil\nSalt\nWater as needed",
+      "instructions": "For pudina paste: In a mixer jar, take a handful of pudina, 2 inch adrak, handful of dhaniya, thoodi si saunf?, 2 green mirch, thoda paani and make a paste, not very smooth.\n\nHeat a pan, put 2 tbsp oil, add masala mix. Bhuno on low flame for 2-3 mins. Now put the pudina paste, mix... can add a little water. Put 6 alooos.\n\nFor aata: Put 2.5 cups maida for 8 samosas. Put 3 tbsp oil in the middle, and add namak. Mix with maida. Add paani dheere dheere and make aata. Cover with cloth for 1/2 hour. Cut into round balls then cover again for 10 mins. Make a rectangular-oval shape, cut in half, you get 2 samosas.",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000005",
+      "name": "Soupy Momos",
+      "description": "Frozen momos in flavorful soup broth",
+      "prepTime": "10",
+      "cookTime": "15",
+      "servings": "2",
+      "ingredients": "Frozen momos\nOnions, chopped\nGarlic, chopped\n1 green chilli, chopped\nOil or butter\nVinegar\nWater\nSalt\nSoy sauce\nBlack pepper\nSpring onion for garnish",
+      "instructions": "Buy any frozen momos (prasuma recommended) or make at home! For the soup, chop onions, garlic and one green chilli. In a pan, take some oil/butter, put the green chillis and garlic. After the garlic is golden brown, put the chopped onions, saute them, keep them crunchy. Now put a little vinegar, add water. Add salt, soy sauce and black pepper. Add the amount of water you want in your soup. Keep adjusting the taste of the condiments till you like it. Add the frozen momos, boil them for the instructed time or if you trust your judgement, till you think they are cooked, not mushy. Serve it hot. Garnish with spring onion, momos chutney etc if you have it.",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000006",
+      "name": "Broccoli Soup",
+      "description": "Creamy and chunky broccoli soup with garlic",
+      "prepTime": "10",
+      "cookTime": "20",
+      "servings": "3",
+      "ingredients": "Broccoli\n2 onions\n5-6 medium garlic cloves\nWater\nButter\nCheese\nOregano\nChilli flakes\nBlack pepper\nSalt",
+      "instructions": "Take brocolli, 2 onions and 5-6 medium sized cloves of garlic. Boil all of this in water for 10-12 mins. Put a timer for 5 mins, after which take out a little brocolli to add as garnish for crunch later. After 10-12 mins, take out the boiled stuff, let it cool and blend it together into a paste, doesn't have to be very smooth, depends on what crunch to smooth ratio you want it. Now take the same pan you took for boiling this stuff, after removing everything from it obviously and then heat it to remove residual water droplets. Add butter, cheese, the broccoli paste you just made. Then you just wing it with the oregano, chilli flakes, black pepper and salt. Bring it to a boil. Keep adding condiments and tasting. Add the broccoli pieces for garnish too while its boiling. And then you're done.",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000007",
+      "name": "Momos Chutney",
+      "description": "Spicy tomato-based chutney perfect for momos",
+      "prepTime": "10",
+      "cookTime": "10",
+      "servings": "6",
+      "ingredients": "2 dried red chillies\n2 medium tomatoes\n4 garlic cloves\n1 inch ginger\n1 tbsp sugar\n1/2 tbsp salt\n1 tsp vinegar\n1 tsp soy sauce\n4-5 cashews or almonds",
+      "instructions": "Boil these things, till tomato skin comes off. Peel tomato, let it cool. In a mixer, add tomatoes, chillis, 4 garlic cloves, 1 inch ginger, 1 tablespoon sugar, half tablespoon salt, 1 tsp vinegar, 1 tsp soya sauce, 4-5 cashews or badaam. Mix, you're done!",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000008",
+      "name": "Rice Paper Paneer Veggie Pancakes",
+      "description": "Crispy rice paper pancakes filled with seasoned paneer and vegetables",
+      "prepTime": "20",
+      "cookTime": "15",
+      "servings": "3",
+      "ingredients": "200g paneer, crumbled\n1 tsp cornflour\nSalt and pepper\nOil\n3 tsp soy sauce\n2 tsp vinegar\n1-2 tbsp Schezwan sauce\n1 tbsp ketchup\n1/2 medium onion, sliced\n4 garlic cloves, chopped\n2 tsp brown/white sugar\nMixed vegetables (carrot, bell pepper, cabbage)\nRice paper sheets\nGreen onions and sesame seeds for garnish",
+      "instructions": "Combine crumbled paneer (200 gm) with cornflour-1 spoon, salt & pepper. Take some oil in a pan, put the paneer mixture, cook till the paneer turns a nice brown (very light, don't burn it). Then add soy sauce-3 tsps, vinegar-2tsps, Schezwan sauce- 1-2 tbsps, ketchup-1 tbsp, sliced green onion (the white part) or normal onion-about half of a medium sized onion, chopped garlic-4 cloves, grated ginger-or ginger paste - I didn't put but can try next time & brown or white sugar-2 tsps. Cook it until well-mixed and seasoned to taste. Then take it off heat and add your vegetables (carrot, bell pepper, cabbage) to the pan, add a bit of salt. Brush a non-stick pan with oil, soak rice paper sheets in water, place one sheet in the pan, add the paneer mixture, cover with another rice paper sheet, and fry until crispy on both sides. Sprinkle with chopped green onions and sesame seeds for garnish- optional. For the dipping sauce, mix soy sauce, sesame oil, rice wine vinegar, brown sugar, ginger juice, chopped green onion, and sesame seeds - I just took soy sauce. Serve the Paneer Veggie Rice Paper Pancakes with the flavourful dipping sauce.",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000009",
+      "name": "Egg Fried Rice",
+      "description": "Simple and flavorful fried rice with scrambled eggs",
+      "prepTime": "10",
+      "cookTime": "15",
+      "servings": "2",
+      "ingredients": "Cooked rice\nOil\nCumin/mustard seeds\n4-5 garlic cloves, chopped\n1 green chilli (optional)\n1 medium onion, chopped\n1 capsicum, diced\nTurmeric (pinch)\nSalt\nEggs\nButter",
+      "instructions": "Add oil in a pan. Put some jeera/mustard seeds and let them pop. Then add chopped garlic (4-5) and one mirchi if you want and let the garlic turn golden brown. Add a medium sized chopped onion, cook it till the crunch you like. Add a square cut pieces of capsicum for a little more crunch and colour. Add a pinch of haldi, salt and put in the rice. You can keep adding salt after you've put the rice according to your preference (add more salt here if you don't put salt in your scrambled eggs).\n\nFor the scrambled eggs: Make scrambled eggs like usual (add butter in oil to make it more rich). Don't cook them till extremely dry. Put them in with the fried rice. Mix mix mix. Eat!",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000010",
+      "name": "Tomato Soup",
+      "description": "Classic creamy tomato soup with herbs",
+      "prepTime": "15",
+      "cookTime": "25",
+      "servings": "4",
+      "ingredients": "4-5 tomatoes\n1 inch ginger\n2 onions, roughly chopped\n7-8 small garlic cloves\nButter\nOregano\nKetchup\nSugar\nBlack pepper\nChilli flakes\nPizza pasta sauce\nSalt",
+      "instructions": "Take 4-5 tomatoes, boil then along with an inch of ginger. Take them out, peel the tomato skins. Take 2 Onions and 7-8 small garlics, roughly chop. Roast in a pan with butter. Add the peeled and roughly chopped tomatoes too along with the ginger. Blend in a mixer, drain using large seive. In a pan take butter, add drained mixture. Add seasoning (oregano, ketchup, sugar, black pepper, chilli flakes, pizza pasta sauce salt). Serve with garlic bread.",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000011",
+      "name": "Avocado Toast with Pickled Onions",
+      "description": "Healthy avocado toast topped with roasted tomatoes and pickled onions",
+      "prepTime": "30",
+      "cookTime": "10",
+      "servings": "2",
+      "ingredients": "1 ripe avocado\n1-2 garlic cloves, minced\n1/2 tsp oregano\nJuice of half lemon\nFresh parsley/coriander\nCherry tomatoes, halved\n1 onion, very thinly sliced\nWater\nVinegar (equal to water)\n3-4 tbsp sugar\nSalt\n2 bread slices",
+      "instructions": "Make sure the avocado is ripe, rinse under cold water, pat dry, cut in half vertically, going around the pit. Twist the 2 halves apart, remove seed, scoop the avocado with spoon, mash with fork. Add 1-2 cloves finely minced garlic + 1/2 tsp oregano + juice of half a lemon (to maintain color) + herbs like parsley/coriander. Mix well. For the dressing, roast some chopped garlic and cherry tomatoes cut into half with a little salt and some oregano. Make some pickled onions - cut veryyyy thin slices of onions and put this in a glass jar. Take water and equal or thoda less part vinegar + 3-4 spoon sugar + thoda salt, heat on medium flame for 1-2 mins till the sugar dissolves. Keep the mixture to cool, then pour over the onions and cool to room temp. Put in the fridge with the lid on the jar. Will be pickled in about an hour if the onions are thinly sliced. This can be stored in the fridge for upto 1 week. Now toast 2 bread slices. Smear the avocado paste on them, put the tomatoes and the onions. You can add extra salt/oregano if you like. Enjoy!",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000012",
+      "name": "Beetroot Raita",
+      "description": "Colorful and nutritious raita with beetroot and spices",
+      "prepTime": "15",
+      "cookTime": "5",
+      "servings": "4",
+      "ingredients": "1 beetroot\n1/2 cucumber (optional)\nGhee\nCumin seeds\nMustard seeds\n7-8 curry leaves\n1 green chilli (optional)\nSalt\nRoasted cumin powder (optional)\nCoriander powder (optional)\nCurd (1/4 cup or more)\nChaat masala (optional)",
+      "instructions": "Take one beetroot, wash it, peel it, wash it again. Grate it with a fine grater. (Optional) Add half a cucumber - grated in the beetroot. Now prepare the tadka. In a small pan, take ghee, put jeera and mustard seeds, then 7-8 kadhi patta (or however many you like) and green chilli (skip if you don't want it to be spicy). After everything has popped, put the beetroot and cucumber mixture in the pan, mix it and roast for a bit, add salt and if you like a little bit of roasted jeera powder or dhaniya masala. Turn off the gas, let it cool. In a bowl, take curd, make it lump free if not already, put the mixture in it, mix. Enjoy! You can also add salt, chaat masala etc after this is done according to your taste and preference.",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000013",
+      "name": "Cucumber Curd Salad",
+      "description": "Refreshing salad with cucumbers in seasoned yogurt",
+      "prepTime": "10",
+      "cookTime": "0",
+      "servings": "3",
+      "ingredients": "2 cucumbers, sliced round\n1/4 cup curd, whisked smooth\nSalt\nPowdered sugar\n1 onion, chopped\n4-5 garlic cloves, finely chopped\nFresh coriander, chopped (optional)\nSoy sauce to taste",
+      "instructions": "Take 2 cucumbers, slice them aese round, keep dahi aese smooth whisked about 1/4th cup, usme kheere daal do. Then add salt, powdered sugar, 1 chopped onion (or more if you like), 4-5 finely chopped garlic, you can add chopped coriander too. Put kikkoman soy sauce according to taste hehe. Then mix and adjust taste as per you.",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000014",
+      "name": "Curd Rice",
+      "description": "South Indian comfort food with tempered yogurt rice",
+      "prepTime": "10",
+      "cookTime": "5",
+      "servings": "2",
+      "ingredients": "Cooked rice\nCurd/yogurt\nSalt\nCumin powder\nGhee\nMustard seeds\nHing (asafoetida)\n1 tsp chana dal\n1 tsp urad dal\nGreen chilli (optional)\nCurry leaves\nGinger paste or grated ginger\nFresh coriander, chopped\nPomegranate (optional)",
+      "instructions": "Bane hue chawal lo, unko thoda smash karo, halka halka, not very zyada, fir usme dahi add karo to the consistency jo aapko chahiye for your curd rice, then add namak and halka sa jeera powder if you have, taste karke adjust karlo namak. Then in the chotu vala tadka pan, take thoda ghee, put mustard seeds, thooooda sa hing and one tsp chana and one tsp urad daal for crunch, saute for a minute then add green chilli (I skipped this) and kadhi patte, and thoda ginger paste or grated ginger if you have it. Then pour this over your dahi chawal and mix. Lastly garnish with finely chopped coriander and pomegranate (optional).",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000015",
+      "name": "Bhel Puri",
+      "description": "Popular Mumbai street food snack",
+      "prepTime": "10",
+      "cookTime": "0",
+      "servings": "2",
+      "ingredients": "Ready-to-eat bhel packet\nOnions, finely chopped\nTomatoes, finely chopped\nGrapes\nPomegranate\nLemon juice\nGreen chutney\nTamarind chutney",
+      "instructions": "Take the ready to eat bhel vala packet - preferably the one which comes with the container. Add finely chopped onions + tomato + grapes + pomegranate + nimbu + thodi green chutney if available + uske sath jo imli types chutney aati hai. Basically it should be a combination of sweet sour savoury, crunchy, everything.",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000016",
+      "name": "Aglio Olio Spaghetti",
+      "description": "Classic Italian pasta with garlic, olive oil, and chilli flakes",
+      "prepTime": "5",
+      "cookTime": "15",
+      "servings": "2",
+      "ingredients": "Spaghetti\nSalt\nOlive oil (about 20-25ml)\n8-9 garlic cloves, sliced\nChilli flakes\nOregano\nFresh parsley, finely chopped",
+      "instructions": "Boil spaghetti with some salt, don't overcook it but don't leave it kaccha also. Boil it till you feel like you could eat in this consistency, but it would be okay if it was thoda or cooked also - drain and save the pasta water!!!!!!\n\nNow in a pan, take olive oil, a good quantity, 100 ml choti bottle hai toh take 1/5th or 1/4th of that bottle. Then take 8-9 cloves of garlic, slice them and put them in it when the oil is not that hot - to let the garlic infuse with the oil. Add chilli flakes to this and toss till the garlic is slightly golden, shouldn't be burnt. Then add half cup pasta water and salt. Mix it and add your cooked spaghetti. Add some oregano, mix it well, the spaghetti will cook some more in this water, if you feel like or paani chahiye toh you can keep adding more in small batches. Add finely chopped parsely, mix evrything well and done!",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000017",
+      "name": "White Sauce Pasta",
+      "description": "TBD",
+      "prepTime": "TBD",
+      "cookTime": "TBD",
+      "servings": "TBD",
+      "ingredients": "TBD",
+      "instructions": "TBD",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000018",
+      "name": "Pink Sauce Pasta",
+      "description": "TBD",
+      "prepTime": "TBD",
+      "cookTime": "TBD",
+      "servings": "TBD",
+      "ingredients": "TBD",
+      "instructions": "TBD",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000019",
+      "name": "Rice Paper Rolls",
+      "description": "TBD",
+      "prepTime": "TBD",
+      "cookTime": "TBD",
+      "servings": "TBD",
+      "ingredients": "TBD",
+      "instructions": "TBD",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000020",
+      "name": "Dhokla",
+      "description": "TBD",
+      "prepTime": "TBD",
+      "cookTime": "TBD",
+      "servings": "TBD",
+      "ingredients": "TBD",
+      "instructions": "TBD",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000021",
+      "name": "Cold Coffee - Nikku",
+      "description": "TBD",
+      "prepTime": "TBD",
+      "cookTime": "TBD",
+      "servings": "TBD",
+      "ingredients": "TBD",
+      "instructions": "TBD",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000022",
+      "name": "Kebab Rolls",
+      "description": "TBD",
+      "prepTime": "TBD",
+      "cookTime": "TBD",
+      "servings": "TBD",
+      "ingredients": "TBD",
+      "instructions": "TBD",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    },
+    {
+      "id": "1749200000023",
+      "name": "Nutrela",
+      "description": "TBD",
+      "prepTime": "TBD",
+      "cookTime": "TBD",
+      "servings": "TBD",
+      "ingredients": "TBD",
+      "instructions": "TBD",
+      "createdAt": "2025-06-11T12:00:00.000Z"
+    }
+  ],
+  "exportDate": "2025-06-10T20:36:49.027Z",
+  "version": "1.0"
+}
