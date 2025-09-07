@@ -3,5 +3,8 @@ ToDo List
 
 1. Search results in search bar, click and open modal directly - done
 2. Find a better background
-3. Landing page
+3. Landing page - done
 4. Add footer message - done
+5. Login and authorisation - admin and guest privileges
+6. Option to add json on top of existing recipes (don't overwrite always)
+7. Reduce identifiable stuff
